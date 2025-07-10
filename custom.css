@@ -1,0 +1,28 @@
+/* Ensure modal takes full intended space */
+.modal-dialog.modal-dialog-centered {
+  max-width: 800px !important;
+  width: 100% !important;
+  margin: 1.75rem auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjust modal content to fit properly */
+.modal-content {
+  width: 100%;
+  background-color: #0b2539;
+  border-top: 6px solid #ec2bf7 !important;
+}
+
+/* Ensure modal body and footer are not constrained */
+.modal-body, .modal-footer {
+  padding: 20px;
+  width: 100%;
+}
+
+/* Override any conflicting styles */
+.modal {
+  display: block !important;
+  overflow-y: auto !important;
+}
