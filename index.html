@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Project Root Files</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      .file-link {
+        text-decoration: none;
+        color: #007acc;
+      }
+      .file-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Files in Project Root</h1>
+    <ul id="file-list">
+      <!-- Files will be listed here by JavaScript -->
+    </ul>
+    <script>
+      // List of known files in the root (update as needed)
+      const files = ["custom.css", "custom.js"];
+
+      const fileList = document.getElementById("file-list");
+      files.forEach((file) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = file;
+        a.textContent = file;
+        a.className = "file-link";
+        li.appendChild(a);
+        fileList.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
