@@ -625,6 +625,17 @@ body {
   color: #f9f9f9 !important;
 }
 
+.modal-content {
+  background-color: #fff; /* White background for the modal */
+  /* color: #333; */ /* Dark text color */
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  text-align: center; /* Center text */
+  /* max-width: 400px; */ /* Maximum width */
+  /* width: 90%; */ /* Responsive width */
+}
+
 .site-button:hover {
   background-color: #ec2bf7 !important;
 }
