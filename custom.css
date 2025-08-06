@@ -604,7 +604,7 @@ body {
 }
 
 .modal-content {
-  background-color: #fff !important;
+  /* background-color: #fff !important; */
   color: #333 !important;
   padding: 30px !important;
   border-radius: 10px !important;
