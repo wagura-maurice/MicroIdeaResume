@@ -611,6 +611,11 @@ body {
   text-align: center !important;
 }
 
+.modal-dialog.modal-dialog-centered {
+  max-width: 800px !important; /* Adjust this value to your desired width */
+  margin: 1.75rem auto !important; /* Center the modal */
+}
+
 .site-button:hover {
   background-color: #ec2bf7 !important;
 }
@@ -637,11 +642,6 @@ body {
   line-height: 1.6;
   border-radius: 5px;
   resize: none;
-}
-
-.modal-dialog.modal-dialog-centered {
-  max-width: 800px !important; /* Adjust this value to your desired width */
-  margin: 1.75rem auto !important; /* Center the modal */
 }
 
 .twm-saved-jobs-view .modal-content {
