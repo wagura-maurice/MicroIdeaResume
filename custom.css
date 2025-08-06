@@ -599,41 +599,61 @@ body {
   margin: 1.75rem auto !important;
 }
 
+/* Modal content styles */
 .modal-content {
-  background-color: #0b2539;
+  background-color: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
   width: 100%;
+  border: none;
 }
 
 .twm-sign-up .modal-content {
   border-top: 6px solid #ec2bf7 !important;
 }
 
+/* Modal header styles */
+.modal-content .modal-header {
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 1.5rem;
+}
+
 .modal-content .modal-header .modal-title,
 .modal-content .modal-header p {
-  color: #f9f9f9 !important;
+  color: #333 !important;
+  margin: 0;
 }
 
 .modal-content .modal-header .btn-close {
   background-color: #f72b6f !important;
+  opacity: 1;
+  padding: 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+}
+
+/* Modal body styles */
+.modal-content .modal-body {
+  padding: 1.5rem;
+  text-align: left;
 }
 
 .modal-content .modal-body .mt-3.mb-3 {
-  color: #f9f9f9 !important;
+  color: #333 !important;
 }
 
 .modal-content .modal-body .form-check p {
-  color: #f9f9f9 !important;
+  color: #333 !important;
+  margin-bottom: 0.5rem;
 }
 
-.modal-content {
-  background-color: #fff; /* White background for the modal */
-  /* color: #333; */ /* Dark text color */
-  padding: 30px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
-  text-align: center; /* Center text */
-  /* max-width: 400px; */ /* Maximum width */
-  /* width: 90%; */ /* Responsive width */
+/* Modal footer styles */
+.modal-content .modal-footer {
+  border-top: 1px solid #dee2e6;
+  padding: 1rem 1.5rem;
+  justify-content: center;
 }
 
 .site-button:hover {
