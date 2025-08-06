@@ -614,6 +614,10 @@ body {
   width: 100% !important;
 }
 
+.modal-body p {
+  color: #f9f9f9 !important;
+}
+
 .modal-dialog.modal-dialog-centered {
   max-width: 800px !important; /* Adjust this value to your desired width */
   margin: 1.75rem auto !important; /* Center the modal */
