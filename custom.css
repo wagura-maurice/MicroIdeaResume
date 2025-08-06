@@ -609,7 +609,7 @@ body {
   padding: 30px !important;
   border-radius: 10px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  text-align: center !important;
+  text-align: center !important; /* change this later */
   max-width: 100% !important;
   width: 100% !important;
 }
@@ -629,7 +629,7 @@ body {
 
 #headlinetext {
   background-color: rgba(236, 43, 247, 0.1) !important;
-  border-left: 5px solid #ec2bf7 !important;
+  border-left: 5px solid #ec2cf7 !important;
   padding: 15px !important;
   font-style: italic;
   color: #f9f9f9 !important;
@@ -637,6 +637,9 @@ body {
   line-height: 1.6;
   border-radius: 5px;
   resize: none;
+  white-space: pre-line !important;
+  text-indent: 0 !important;
+  text-align: left !important;
 }
 
 #keyskills {
