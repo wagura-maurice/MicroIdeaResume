@@ -609,7 +609,7 @@ body {
   padding: 30px !important;
   border-radius: 10px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  text-align: center !important; /* change this later */
+  text-align: initial !important; /* change this later */
   max-width: 100% !important;
   width: 100% !important;
 }
