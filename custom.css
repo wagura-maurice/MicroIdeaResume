@@ -1,28 +1,653 @@
-/* Ensure modal takes full intended space */
-.modal-dialog.modal-dialog-centered {
-  max-width: 800px !important;
-  width: 100% !important;
-  margin: 1.75rem auto !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ---------------------------------------General Backgrounds----------------------------------------------- */
+.site-bg-white,
+.site-bg-gray {
+  background-color: #001b30 !important;
 }
 
-/* Adjust modal content to fit properly */
-.modal-content {
-  width: 100%;
-  background-color: #0b2539;
+.loading-area .loading-box {
+  background-color: #f9f9f9 !important;
+}
+
+.wrapper .cssload-loader {
+  background-color: #ec2bf7 !important;
+}
+
+/* ---------------------------------------Header----------------------------------------------- */
+.site-header,
+.sticky-header,
+.header-nav {
+  background-color: #0b2539 !important;
+  color: #f9f9f9 !important;
+}
+
+.sticky-header {
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.logo-header img {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-toggler .icon-bar {
+  background-color: #f9f9f9 !important;
+}
+
+.header-nav .nav.navbar-nav li a {
+  color: #f9f9f9 !important;
+}
+
+.header-nav .nav.navbar-nav li a:hover {
+  color: #ec2bf7 !important;
+}
+
+.header-style-3 .is-fixed .main-bar.color-fill {
+  background-color: #0b2539 !important;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px rgba(56, 152, 226, 0.3);
+}
+
+.header-style-3 .header-nav .nav > li .sub-menu {
+  background-color: #0b2539 !important;
+}
+
+/* ---------------------------------------Sidebar----------------------------------------------- */
+.side-bar-st-1 {
+  background: transparent !important;
+  padding: 30px;
+  border-radius: 25px;
+  border-color: #007bff;
+  color: #007bff !important;
+}
+
+.side-bar-st-1 h4 {
+  color: #f9f9f9;
+  font-size: 20px;
+}
+
+.side-bar-st-1 h4:hover {
+  color: #ec2bf7;
+}
+
+.twm-nav-list-1 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.twm-nav-list-1 ul li {
+  margin: 5px 0;
+}
+
+.twm-nav-list-1 ul li:last-child {
+  border-bottom: none;
+}
+
+.twm-nav-list-1 ul li a > i {
+  font-size: 20px;
+  transition: 0.3s ease;
+  vertical-align: middle;
+  margin-right: 5px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1967d2;
+}
+
+.twm-nav-list-1 ul li a:hover > i {
+  color: #ec2bf7 !important;
+}
+
+.twm-nav-list-1 ul > li > a {
+  padding: 12px 20px 12px 50px;
+  color: #f9f9f9;
+  display: block;
+  font-size: 14px;
+  position: relative;
+  font-weight: 400;
+  transition: 0.3s ease;
+  border-radius: 10px;
+}
+
+.twm-nav-list-1 ul > li > a:hover {
+  color: #ec2bf7 !important;
+  background-color: #fff;
+  box-shadow: 0px 4px 15px rgba(180, 205, 237, 0.7);
+  transform: translateY(-2px);
+}
+
+.twm-nav-list-1 ul > li.active > a {
+  color: #ec2bf7 !important;
+  background-color: #fff;
+  box-shadow: 0px 4px 15px rgba(180, 205, 237, 0.7);
+  border-radius: 10px;
+}
+
+.twm-nav-list-1 ul > li.active > a i {
+  color: #ec2bf7 !important;
+}
+
+.twm-nav-list-1 ul > li ul {
+  display: none;
+  padding-left: 20px;
+}
+
+.twm-nav-list-1 ul > li ul li > a {
+  padding: 10px 15px 10px 40px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.twm-nav-list-1 ul > li ul li > a:hover {
+  color: #ec2bf7 !important;
+  background-color: #fff;
+  box-shadow: 0px 4px 15px rgba(180, 205, 237, 0.7);
+}
+
+/* ---------------------------------------Logout Button----------------------------------------------- */
+.header-style-3 .extra-nav {
+  display: table;
+  float: right;
+  height: 70px;
+  position: relative;
+  z-index: 13;
+}
+
+.header-style-3 .extra-nav i {
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.header-style-3 .extra-nav a:hover,
+.header-style-3 .extra-nav a:hover i {
+  color: #ec2bf7 !important;
+}
+
+.feather-log-in {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  line-height: 1;
+  margin-right: 5px;
+}
+
+.twm-nav-sign-up {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+}
+
+.twm-nav-sign-up i {
+  font-size: 18px;
+}
+
+.twm-nav-sign-up:hover,
+.twm-nav-sign-up:hover i.feather-log-in {
+  color: #ec2bf7 !important;
+}
+
+/* ---------------------------------------Form Styling----------------------------------------------- */
+.twm-right-section-panel.site-bg-gray {
+  background-color: #0b2539 !important;
+  color: #f9f9f9 !important;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.panel.panel-default {
+  background-color: #0b2539 !important;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.panel-heading.wt-panel-heading {
+  background-color: #0b2539 !important;
+  color: #f9f9f9 !important;
+  padding: 15px 20px;
+}
+
+.panel-tittle.m-a0 {
+  color: #f9f9f9 !important;
+}
+
+.panel-body.wt-panel-body {
+  background-color: #0b2539 !important;
+  color: #f9f9f9 !important;
+  padding: 20px;
+}
+
+.form-group label {
+  color: #f9f9f9 !important;
+}
+
+.section-full .twm-contact-one {
+  background-color: #0b2539 !important;
+}
+
+/* ---------------------------------------Attach Resume Dropbox----------------------------------------------- */
+.upload-container {
+  border: 2px dashed #007bff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: white;
+  width: auto;
+}
+
+#chatContainer {
+  background-color: #0b2539 !important;
+  padding: 0px !important;
+  box-shadow: 0 4px 8px transparent;
+  overflow: auto;
+}
+
+/* ---------------------------------------chatContainer----------------------------------------------- */
+/* Hide scrollbar for WebKit browsers */
+#chatContainer::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+#chatContainer h2 {
+  color: #007bff;
+}
+
+#chatContainer h3 {
+  color: #0056b3;
+}
+
+#chat-box {
+  max-height: 6000px;
+  height: auto;
+  overflow-y: auto;
+  padding: 10px;
+  border: none !important;
+  border-radius: 4px;
+  background-color: #0b2539 !important;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+
+#chat-box .pre {
+  background-color: #0b2539 !important;
+}
+
+.form-check-input[type="select"]  {
+  height: 400px; /* Adjust height as needed */
+}
+
+/* Base button styles */
+.copy-button {
+  background-color: #007bff;
+  margin-top: 2px;
+  margin-bottom: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease;
+  color: #f9f9f9;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Disabled state styles */
+.copy-button:disabled {
+  background-color: #ec2bf7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Loading state styles */
+.copy-button.loading {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+/* Loading spinner animation */
+.copy-button.loading::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin animation keyframes */
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.copy-button:hover,
+.export-pdf-button:hover {
+  background-color: #0056b3;
+}
+
+/* ---------------------------------------Footer----------------------------------------------- */
+.footer-light {
+  color: #f9f9f9 !important;
+  font-size: 16px;
+  padding-top: 80px;
+  background-color: #0b2539 !important;
+}
+
+.footer-light .footer-top {
+  border-top: 2px solid #f9f9f9 !important;
+  border-bottom: 2px solid #f9f9f9 !important;
+}
+
+.footer-light .widget_services ul li a {
+  color: #f9f9f9 !important;
+}
+
+.footer-light .widget_services ul li a:hover {
+  color: #ec2bf7 !important;
+}
+
+.footer-light .widget-title {
+  font-size: 22px !important;
+}
+
+.footer-light .widget-title:before {
+  background-color: #f9f9f9 !important;
+}
+
+.ftr-nw-title {
+  color: #f9f9f9 !important;
+}
+
+.ftr-nw-form input {
+  background-color: #f9f9f9;
+  color: #001b30;
+  border: 1px solid #f9f9f9;
+}
+
+.ftr-nw-form input::placeholder {
+  color: #001b30;
+}
+
+.ftr-nw-subcribe-btn {
+  background-color: #ec2bf7;
+  color: #f9f9f9;
+  border: 1px solid #ec2bf7;
+}
+
+.ftr-nw-subcribe-btn:hover {
+  background-color: #f9f9f9;
+  color: #001b30;
+  border: 1px solid #f9f9f9;
+}
+
+.footer-bottom {
+  border-top: none; /* Remove the border */
+  padding-top: 1px; /* Maintain spacing */
+}
+
+.footer-copy-right .copyrights-text {
+  color: #f9f9f9 !important;
+}
+
+.social-icons a {
+  color: #1967d2 !important;
+}
+
+.social-icons a:hover {
+  color: #ec2bf7 !important;
+}
+
+/* ---------------------------------------Scroll Top Button----------------------------------------------- */
+button.scroltop {
+  background: #ec2bf7 !important;
+}
+
+
+/* ---------------------------------------General Backgrounds----------------------------------------------- */
+body {
+  background-color: #001b30 !important;
+}
+
+.site-bg-primary {
+  background-color: #ec2bf7 !important; /* #0b2539; */
+}
+
+/* ---------------------------------------home page----------------------------------------------- */
+.twm-millions-1-area
+  .twm-millions-section-wrap
+  .twm-millions-1-section-right
+  h2 {
+  color: #f9f9f9 !important;
+}
+
+.twm-millions-1-area
+  .twm-millions-section-wrap
+  .twm-millions-1-section-right
+  h2:hover {
+  color: #ec2bf7 !important;
+}
+
+.twm-millions-1-area
+  .twm-millions-section-wrap
+  .twm-millions-1-section-right
+  p {
+  color: #f9f9f9 !important;
+}
+
+.twm-millions-1-area
+  .twm-millions-section-wrap
+  .twm-millions-1-section-right
+  p:hover {
+  color: #ec2bf7 !important;
+}
+
+.section-full .p-t120 .p-b0 .site-bg-white .twm-millions-1-area .pos-relative {
+  background-color: #ec2bf7 !important;
+}
+
+/* ---------------------------------------about page----------------------------------------------- */
+.twm-how-it-work-area2 .wt-small-separator-outer .wt-title {
+  color: #f9f9f9 !important;
+}
+
+.twm-how-it-work-area2 .wt-small-separator-outer .wt-title:hover {
+  color: #ec2bf7 !important;
+}
+
+.twm-how-it-work-area2 ul li {
+  color: #f9f9f9 !important;
+}
+
+.twm-how-it-work-area2 ul li:hover {
+  color: #ec2bf7 !important;
+}
+
+.description-list li i {
+  background-color: #ec2bf7 !important;
+}
+
+/* ---------------------------------------faq page----------------------------------------------- */
+.tw-faq-section .tw-faq .accordion-item {
+  border: none !important;
+  background-color: #0b2539 !important;
+}
+
+.tw-faq-section .tw-faq .accordion-button {
+  color: #1967d2 !important;
+  background-color: #0b2539 !important;
+}
+
+.tw-faq-section .tw-faq .accordion-body {
+  color: #f9f9f9 !important;
+}
+
+.accordion-button:after {
+  color: #ec2bf7 !important;
+}
+
+/* ---------------------------------------contact us page----------------------------------------------- */
+.twm-contact-one {
+  background-color: #001b30 !important;
+}
+
+.twm-contact-one
+  .contact-one-inner
+  .contact-form-outer
+  .wt-small-separator-outer
+  .wt-title {
+  color: #f9f9f9 !important;
+}
+
+.twm-contact-one
+  .contact-one-inner
+  .contact-form-outer
+  .wt-small-separator-outer
+  .wt-title:hover {
+  color: #ec2bf7 !important;
+}
+
+.twm-contact-one
+  .contact-one-inner
+  .contact-form-outer
+  .wt-small-separator-outer
+  p {
+  color: #f9f9f9 !important;
+}
+
+.twm-contact-one
+  .contact-one-inner
+  .contact-form-outer
+  .wt-small-separator-outer
+  p:hover {
+  color: #ec2bf7 !important;
+}
+
+.twm-contact-one .contact-info-section .c-info-column .c-info-icon {
+  color: #f9f9f9;
+  background-color: #ec2bf7;
+}
+
+.twm-contact-one
+  .contact-one-inner
+  .contact-info-wrap
+  .contact-info
+  .contact-info-section
+  .c-info-column
+  .twm-title {
+  color: #f9f9f9 !important;
+}
+
+.twm-contact-one
+  .contact-one-inner
+  .contact-info-wrap
+  .contact-info
+  .contact-info-section
+  .c-info-column
+  p,
+.twm-contact-one
+  .contact-one-inner
+  .contact-info-wrap
+  .contact-info
+  .contact-info-section
+  .c-info-column
+  a {
+  color: #f9f9f9 !important;
+}
+
+.twm-contact-one .contact-one-inner .contact-info-wrap .contact-info {
+  background-color: #0b2539 !important;
+}
+
+.twm-contact-one .contact-info-wrap:before {
+  border-top: 57px solid #0b2539;
+}
+
+/* ---------------------------------------modal pop-up----------------------------------------------- */
+.twm-sign-up .modal-content {
   border-top: 6px solid #ec2bf7 !important;
 }
 
-/* Ensure modal body and footer are not constrained */
-.modal-body, .modal-footer {
-  padding: 20px;
-  width: 100%;
+.modal-content {
+  background-color: #0b2539;
 }
 
-/* Override any conflicting styles */
-.modal {
-  display: block !important;
-  overflow-y: auto !important;
+.modal-content .modal-header .modal-title,
+.modal-content .modal-header p {
+  color: #f9f9f9 !important;
+}
+
+.modal-content .modal-header .btn-close {
+  background-color: #f72b6f !important;
+}
+
+.modal-content .modal-body .mt-3.mb-3 {
+  color: #f9f9f9 !important;
+}
+
+.modal-content .modal-body .form-check p {
+  color: #f9f9f9 !important;
+}
+
+.site-button:hover {
+  background-color: #ec2bf7 !important;
+}
+
+#headlinetext {
+  background-color: rgba(236, 43, 247, 0.1) !important;
+  border-left: 5px solid #ec2bf7 !important;
+  padding: 15px !important;
+  font-style: italic;
+  color: #f9f9f9 !important;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 5px;
+  resize: none;
+}
+
+#keyskills {
+  background-color: rgba(236, 43, 247, 0.1) !important;
+  border-left: 5px solid #ec2bf7 !important;
+  padding: 15px !important;
+  font-style: italic;
+  color: #f9f9f9 !important;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 5px;
+  resize: none;
+}
+
+.modal-dialog.modal-dialog-centered {
+  max-width: 800px !important; /* Adjust this value to your desired width */
+  margin: 1.75rem auto !important; /* Center the modal */
+}
+
+.twm-saved-jobs-view .modal-content {
+  border-top: 6px solid #ec2bf7 !important;
+}
+
+.twm-saved-jobs-view .modal-footer {
+  background-color: #0b2539 !important;
+}
+
+.form-check-input[type="radio"] {
+  border-color: #ec2bf7 !important; /* Set border color to purple */
+  background-color: transparent !important; /* Remove background color */
+}
+
+.form-check-input:checked[type="radio"]:after {
+  background-color: #ec2bf7 !important;
 }
