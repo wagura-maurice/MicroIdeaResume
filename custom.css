@@ -605,10 +605,13 @@ body {
 
 .modal-content {
   background-color: #fff !important;
+  color: #333 !important;
   padding: 30px !important;
   border-radius: 10px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
   text-align: center !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 .modal-dialog.modal-dialog-centered {
