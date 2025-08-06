@@ -578,12 +578,34 @@ body {
 }
 
 /* ---------------------------------------modal pop-up----------------------------------------------- */
-.twm-sign-up .modal-content {
-  border-top: 6px solid #ec2bf7 !important;
+.modal {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 20px 0;
+}
+
+.modal-dialog {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.modal-dialog.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 3.5rem);
+  margin: 1.75rem auto !important;
 }
 
 .modal-content {
   background-color: #0b2539;
+  width: 100%;
+}
+
+.twm-sign-up .modal-content {
+  border-top: 6px solid #ec2bf7 !important;
 }
 
 .modal-content .modal-header .modal-title,
@@ -632,8 +654,12 @@ body {
 }
 
 .modal-dialog.modal-dialog-centered {
-  max-width: 800px !important; /* Adjust this value to your desired width */
-  margin: 1.75rem auto !important; /* Center the modal */
+  max-width: 800px !important;
+  width: 90% !important;
+  margin: 1.75rem auto !important;
+  display: flex !important;
+  align-items: center;
+  min-height: calc(100% - 3.5rem);
 }
 
 .twm-saved-jobs-view .modal-content {
