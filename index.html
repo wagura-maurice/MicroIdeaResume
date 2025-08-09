@@ -27,24 +27,46 @@
     </style>
   </head>
   <body>
-    <h1>Files in Project Root</h1>
-    <ul id="file-list">
-      <!-- Files will be listed here by JavaScript -->
+    <h1>Project Files</h1>
+    
+    <h2>Root Directory Files</h2>
+    <ul id="root-files">
+      <!-- Root files will be listed here by JavaScript -->
+    </ul>
+    
+    <h2>Tour Files</h2>
+    <ul id="tour-files">
+      <!-- Tour files will be listed here by JavaScript -->
     </ul>
     <script>
-      // List of known files in the root (update as needed)
-      const files = ["custom.css", "custom.js"];
+      // List of known files in the root
+      const rootFiles = ["custom.css", "custom.js"];
+      const tourFiles = [
+        "tour/tour.css",
+        "tour/changepassword.js",
+        "tour/dashboard.js",
+        "tour/profile.js",
+        "tour/recommend.js",
+        "tour/resume.js"
+      ];
 
-      const fileList = document.getElementById("file-list");
-      files.forEach((file) => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = file;
-        a.textContent = file;
-        a.className = "file-link";
-        li.appendChild(a);
-        fileList.appendChild(li);
-      });
+      // Function to create file list items
+      function createFileList(files, containerId) {
+        const container = document.getElementById(containerId);
+        files.forEach((file) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = file;
+          a.textContent = file;
+          a.className = "file-link";
+          li.appendChild(a);
+          container.appendChild(li);
+        });
+      }
+
+      // Create both file lists
+      createFileList(rootFiles, "root-files");
+      createFileList(tourFiles, "tour-files");
     </script>
   </body>
 </html>
