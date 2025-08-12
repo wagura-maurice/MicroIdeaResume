@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tour.addStep({
         id: 'basic-information',
         title: 'Profile Information',
-        text: 'This section contains your basic personal information such as name, email, and contact details.',
+        text: 'This section contains your basic information, your social network and attach resume sections.',
         attachTo: {
             element: '.twm-right-section-panel.site-bg-gray',
             on: 'top'
@@ -141,16 +141,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form Fields Section
-    tour.addStep({
-        id: 'form-fields',
-        title: 'Update Your Details',
-        text: 'You can update your personal information in these form fields. Make sure to fill in all required fields marked with an asterisk (*).',
-        attachTo: {
-            element: 'form[role="form"]',
-            on: 'top'
-        },
-        scrollTo: true
-    });
+    // tour.addStep({
+    //     id: 'form-fields',
+    //     title: 'Update Your Details',
+    //     text: 'You can update your personal information in these form fields. Make sure to fill in all required fields marked with an asterisk (*).',
+    //     attachTo: {
+    //         element: 'form[role="form"]',
+    //         on: 'top'
+    //     },
+    //     scrollTo: true
+    // });
 
     // Basic Information Section
     tour.addStep({
@@ -158,11 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Basic Information',
         text: 'Update your personal details in this section. All required fields must be filled in correctly.',
         attachTo: {
-            element: '[id*="basic"], [id*="Basic"], h4',
+            element: '.panel-body wt-panel-body p-a20 m-b30',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('[id*="basic"], [id*="Basic"], h4', true, 'Basic Information')
+        beforeShowPromise: checkElementExists('.panel-body wt-panel-body p-a20 m-b30', true, 'Basic Information')
     });
 
     // Basic Info Save Button
