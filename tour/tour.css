@@ -1,120 +1,179 @@
-/* Shepherd.js Tour Styling */
-.shepherd-theme-custom {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    max-width: 400px;
-    overflow: hidden;
+/**
+ * Shepherd.js Tour Styling
+ * Optimized for performance and maintainability
+ */
+
+:root {
+  /* Colors */
+  --primary-color: #2a2f45;
+  --primary-hover: #1a1f35;
+  --text-color: #4a4a4a;
+  --white: #ffffff;
+  --light-bg: #f8f9fa;
+  --light-hover: #e9ecef;
+  --border-color: #dee2e6;
+  --close-hover: #9c27b0;
+  
+  /* Spacing */
+  --spacing-sm: 5px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  
+  /* Typography */
+  --font-size-base: 15px;
+  --font-size-lg: 18px;
+  --font-weight-bold: 600;
+  --line-height: 1.5;
+  
+  /* Effects */
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
 }
 
+/* Base styles */
+.shepherd-theme-custom {
+    box-shadow: var(--shadow);
+    max-width: 400px;
+    overflow: hidden;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+}
+
+/* Header */
 .shepherd-theme-custom .shepherd-header {
-    background-color: #2a2f45 !important;
-    padding: 15px 20px;
-    border-radius: 0px !important;
+    background-color: var(--primary-color) !important;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 0 !important;
     position: relative;
 }
 
+/* Title */
 .shepherd-theme-custom .shepherd-title {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 18px;
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
     margin: 0;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
     display: inline-block;
 }
 
+/* Content */
 .shepherd-theme-custom .shepherd-text {
-    color: #4a4a4a;
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 20px;
+    color: var(--text-color);
+    padding: var(--spacing-lg);
 }
 
+/* Footer */
 .shepherd-theme-custom .shepherd-footer {
-    padding: 0 20px 20px;
-    border-radius: 0 0 8px 8px;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-md);
 }
 
+/* Buttons */
 .shepherd-theme-custom .shepherd-button {
-    padding: 8px 20px;
-    border-radius: 4px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius);
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    cursor: pointer;
 }
 
+/* Primary Button */
 .shepherd-theme-custom .shepherd-button.shepherd-button-primary {
-    background-color: #2a2f45;
-    border: 1px solid #2a2f45;
-    color: #ffffff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
 }
 
-.shepherd-theme-custom .shepherd-button.shepherd-button-primary:hover {
-    background-color: #1a1f35;
-    border-color: #1a1f35;
-    color: #ffffff;
+.shepherd-theme-custom .shepherd-button.shepherd-button-primary:hover,
+.shepherd-theme-custom .shepherd-button.shepherd-button-primary:focus {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: var(--white);
 }
 
+/* Secondary Button */
 .shepherd-theme-custom .shepherd-button.shepherd-button-secondary {
-    background-color: #f8f9fa;
-    color: #2a2f45;
-    border: 1px solid #dee2e6;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    border-color: var(--border-color);
 }
 
-.shepherd-theme-custom .shepherd-button.shepherd-button-secondary:hover {
-    background-color: #e9ecef;
-    color: #2a2f45;
+.shepherd-theme-custom .shepherd-button.shepherd-button-secondary:hover,
+.shepherd-theme-custom .shepherd-button.shepherd-button-secondary:focus {
+    background-color: var(--light-hover);
+    color: var(--primary-color);
 }
 
-/* Close button styles */
+/* Close button */
 .shepherd-theme-custom .shepherd-cancel-icon {
-    color: #ffffff;
+    color: var(--white);
     font-size: 1.5em;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition);
     opacity: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
 }
 
 .shepherd-theme-custom .shepherd-cancel-icon:hover,
 .shepherd-theme-custom .shepherd-cancel-icon:focus {
-    color: #9c27b0; /* Purple color on hover/click */
+    color: var(--close-hover);
     text-decoration: none;
+    outline: none;
 }
 
 /* Header close button container */
 .shepherd-theme-custom .shepherd-header .shepherd-cancel-icon {
     position: absolute;
-    right: 15px;
+    right: var(--spacing-md);
     top: 50%;
     transform: translateY(-50%);
-    background: transparent;
-    border: none;
     font-size: 1.8em;
-    cursor: pointer;
-    padding: 5px;
+    padding: var(--spacing-sm);
 }
 
 /* Highlight the current element being shown */
 .shepherd-target.shepherd-enabled {
     box-shadow: 0 0 0 4px rgba(42, 47, 69, 0.5);
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .shepherd-theme-custom {
         max-width: 90%;
-        margin: 0 10px;
+        margin: 0 var(--spacing-md);
     }
     
     .shepherd-theme-custom .shepherd-text {
-        font-size: 14px;
+        font-size: 0.9em;
+        padding: var(--spacing-md);
     }
     
     .shepherd-theme-custom .shepherd-title {
-        font-size: 16px;
-        padding: 8px 12px;
+        font-size: 1.1em;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .shepherd-theme-custom .shepherd-footer {
+        padding: 0 var(--spacing-md) var(--spacing-md);
+    }
+    
+    .shepherd-theme-custom .shepherd-button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.95em;
     }
 }
