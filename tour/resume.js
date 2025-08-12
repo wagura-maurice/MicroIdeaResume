@@ -238,11 +238,11 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Work Samples',
             text: 'Showcase examples of your work, projects, or portfolio pieces to demonstrate your skills.',
             attachTo: {
-                element: '#work_sample_edit',
+                element: '#work_sample_div',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('#work_sample_edit', true)
+            beforeShowPromise: checkElementExists('#work_sample_div', true)
         });
 
         // Work Samples Edit Button
@@ -314,12 +314,25 @@ document.addEventListener('DOMContentLoaded', () => {
         tour.addStep({
             id: 'edit-buttons',
             title: 'Editing Your Information',
-            text: 'Look for the edit icons (✏️) next to each section to update your information at any time.',
+            text: 'Look for the edit icons next to each section to update your information at any time.',
             attachTo: {
                 element: '.content-admin-main',
                 on: 'top'
             },
-            scrollTo: true
+            scrollTo: { behavior: 'smooth', block: 'center' },
+            when: {
+                show: function() {
+                    const step = this;
+                    // Add a small delay to ensure the step is fully rendered
+                    setTimeout(() => {
+                        const textElement = step.el.querySelector('.shepherd-text');
+                        if (textElement) {
+                            textElement.innerHTML = 
+                                'Look for the edit icons (<i class="fas fa-edit"></i>) next to each section to update your information at any time.';
+                        }
+                    }, 100);
+                }
+            }
         });
 
         // Final Step

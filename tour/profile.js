@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element: '.twm-right-section-panel.site-bg-gray',
             on: 'top'
         },
-        scrollTo: true
+        scrollTo: { behavior: 'smooth', block: 'center' },
     });
 
     // Basic Information Section

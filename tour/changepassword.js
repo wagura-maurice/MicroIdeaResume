@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.logo-header',
                 on: 'bottom'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },,
             buttons: [
                 {
                     text: 'Next',
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.content-admin-main',
                 on: 'top'
             },
-            scrollTo: true
+            scrollTo: { behavior: 'smooth', block: 'center' },
         });
 
         // Current Password Field

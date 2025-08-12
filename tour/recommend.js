@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.logo-header',
                 on: 'bottom'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },,
             buttons: [
                 {
                     text: 'Next',
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.panel .panel-default',
                 on: 'top'
             },
-            scrollTo: true
+            scrollTo: { behavior: 'smooth', block: 'center' },
         });
 
         // Action Buttons
