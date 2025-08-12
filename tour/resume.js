@@ -52,22 +52,28 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('.side-bar-st-1')
         });
 
-        // Resume List
+        // Resume List Section
         tour.addStep({
             id: 'resume-list',
             title: 'Your Resumes',
-            text: 'View and manage your uploaded resumes in this section.',
-            attachTo: { element: '.resume-list, .table-responsive', on: 'top' },
-            beforeShowPromise: checkElementExists('.resume-list, .table-responsive')
+            text: 'View and manage all your uploaded resumes in this section.',
+            attachTo: {
+                element: '.content-admin-main',
+                on: 'top'
+            },
+            scrollTo: true
         });
 
-        // Upload Section
+        // Upload Button
         tour.addStep({
-            id: 'upload-section',
+            id: 'upload-button',
             title: 'Upload Resume',
-            text: 'Click here to upload a new resume or CV.',
-            attachTo: { element: '.upload-area, .btn-upload', on: 'top' },
-            beforeShowPromise: checkElementExists('.upload-area, .btn-upload')
+            text: 'Click the "Upload New CV" button to add a new resume to your profile.',
+            attachTo: {
+                element: 'a[href*="upload"], .btn-primary',
+                on: 'top'
+            },
+            beforeShowPromise: checkElementExists('a[href*="upload"], .btn-primary')
         });
 
         // Final Step
