@@ -33,23 +33,44 @@ document.addEventListener('DOMContentLoaded', () => {
     waitForJQuery(function() {
         const tour = initializeTour();
         const checkElementExists = createCheckElementExists(tour);
-        
-        // Welcome Step
+
+        // Welcome step
         tour.addStep({
             id: 'welcome',
             title: 'Resume Management',
             text: 'Welcome to your resume management page. This tour will guide you through managing your resumes and CVs.',
-            attachTo: { element: '.logo-header', on: 'bottom' },
-            scrollTo: true
+            attachTo: {
+                element: '.logo-header',
+                on: 'bottom'
+            },
+            buttons: [
+                {
+                    text: 'Next',
+                    action: tour.next,
+                    classes: 'shepherd-button-primary'
+                }
+            ]
         });
 
-        // Main Navigation
         tour.addStep({
             id: 'main-navigation',
-            title: 'Navigation',
-            text: 'Use the left sidebar to navigate between different sections.',
-            attachTo: { element: '.side-bar-st-1', on: 'right' },
-            beforeShowPromise: checkElementExists('.side-bar-st-1')
+            title: 'Main Navigation',
+            text: 'Use the left sidebar to navigate between different sections of the portal.',
+            attachTo: {
+                element: '.side-bar-st-1',
+                on: 'right'
+            }
+        });
+
+        // Navigation Help
+        tour.addStep({
+            id: 'help-button',
+            title: 'Need Help?',
+            text: 'Click the help button (?) anytime to restart this tour.',
+            attachTo: {
+                element: '#triggertour',
+                on: 'left'
+            }
         });
 
         // Resume List Section
