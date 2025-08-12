@@ -69,32 +69,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Dashboard Stats Section
     tour.addStep({
-        id: 'help-button',
-        title: 'Need Help?',
-        text: 'Click the question mark button anytime you need assistance.',
+        id: 'dashboard-stats',
+        title: 'Your Dashboard Stats',
+        text: 'Here are your key metrics:',        
         attachTo: {
-            element: '#triggertour',
+            element: '.dashboard-stats',
             on: 'bottom'
         }
     });
 
+    // How It Works Section
     tour.addStep({
-        id: 'user-profile',
-        title: 'Your Profile',
-        text: 'Access your profile settings and account information from here.',
+        id: 'how-it-works',
+        title: 'How It Works',
+        text: 'Follow these steps to get started:',
         attachTo: {
-            element: '.header-widget',
-            on: 'bottom'
-        }
-    });
-
-    tour.addStep({
-        id: 'main-content',
-        title: 'Dashboard Content',
-        text: 'This is your main dashboard where you can view important information and quick actions.',
-        attachTo: {
-            element: '.dashboard-content',
+            element: '.how-it-works',
             on: 'top'
         },
         buttons: [
