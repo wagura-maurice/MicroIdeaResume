@@ -197,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 classes: 'shepherd-button-secondary'
             },
             {
-                text: 'Finish',
-                action: tour.complete,
+                text: 'Next',
+                action: tour.next,
                 classes: 'shepherd-button-primary'
             }
         ]
