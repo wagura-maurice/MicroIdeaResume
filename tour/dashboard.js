@@ -1,5 +1,5 @@
 // Dashboard Tour using Shepherd.js
-document.addEventListener('DOMContentLoaded', function() {
+function initializeTour() {
     // Initialize the tour
     const tour = new Shepherd.Tour({
         useModalOverlay: true,
@@ -12,17 +12,34 @@ document.addEventListener('DOMContentLoaded', function() {
             buttons: [
                 {
                     text: 'Back',
-                    action: tour.back,
-                    classes: 'shepherd-button-secondary'
+                    action: function() { return this.back(); },
+                    classes: 'shepherd-button-secondary',
+                    secondary: true
                 },
                 {
                     text: 'Next',
-                    action: tour.next,
+                    action: function() { return this.next(); },
                     classes: 'shepherd-button-primary'
                 }
             ]
         }
     });
+    
+    return tour;
+}
+
+// Start the tour when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the tour
+    const tour = initializeTour();
+    
+    // Function to start the tour
+    function startTour() {
+        if (tour.isActive()) {
+            tour.complete();
+        }
+        tour.start();
+    }
 
     // Add steps to the tour
     tour.addStep({
@@ -94,15 +111,22 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     });
 
-    // Start the tour when the help button is clicked
-    document.getElementById('triggertour')?.addEventListener('click', function(e) {
-        e.preventDefault();
-        tour.start();
-    });
+    // Add click handler for the tour trigger button
+    const tourTrigger = document.getElementById('triggertour');
+    if (tourTrigger) {
+        tourTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            startTour();
+        });
+    }
 
     // Auto-start the tour on first visit
     if (!localStorage.getItem('dashboardTourCompleted')) {
-        tour.start();
-        localStorage.setItem('dashboardTourCompleted', 'true');
+        // Small delay to ensure all elements are rendered
+        setTimeout(() => {
+            startTour();
+            localStorage.setItem('dashboardTourCompleted', 'true');
+        }, 1000);
     }
 });
