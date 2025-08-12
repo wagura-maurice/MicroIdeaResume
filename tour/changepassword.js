@@ -144,26 +144,26 @@ document.addEventListener('DOMContentLoaded', () => {
         tour.addStep({
             id: 'current-password',
             title: 'Current Password',
-            text: 'Enter your current password in this field.',
+            text: 'Enter your current password here.',
             attachTo: {
-                element: 'input[name="old_password"]',
+                element: '#id_old_password',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('input[name="old_password"]', true)
+            beforeShowPromise: checkElementExists('#id_old_password', true)
         });
 
         // New Password Field
         tour.addStep({
             id: 'new-password',
             title: 'New Password',
-            text: 'Enter your new password here. Make sure it meets the security requirements.',
+            text: 'Enter your new password here. Make sure it\'s strong and secure!',
             attachTo: {
-                element: 'input[name="new_password1"]',
+                element: '#id_new_password1',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('input[name="new_password1"]', true)
+            beforeShowPromise: checkElementExists('#id_new_password1', true)
         });
 
         // Confirm New Password Field
@@ -172,24 +172,24 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Confirm New Password',
             text: 'Re-enter your new password to confirm it matches.',
             attachTo: {
-                element: 'input[name="new_password2"]',
+                element: '#id_new_password2',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('input[name="new_password2"]', true)
+            beforeShowPromise: checkElementExists('#id_new_password2', true)
         });
 
-        // Save Button
+        // Save Button - Look for submit button in the form
         tour.addStep({
             id: 'save-changes',
             title: 'Save Changes',
             text: 'Click this button to update your password.',
             attachTo: {
-                element: 'button[type="submit"], .btn-primary',
+                element: 'form[action*="password/change/"] button[type="submit"], form[action*="password/change/"] input[type="submit"], .change-password-form .btn-primary',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('button[type="submit"], .btn-primary', true)
+            beforeShowPromise: checkElementExists('form[action*="password/change/"] button[type="submit"], form[action*="password/change/"] input[type="submit"], .change-password-form .btn-primary', true)
         });
 
         // Final Step
