@@ -197,11 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Save Changes',
             text: 'Click this button to update your password.',
             attachTo: {
-                element: 'form[action*="password/change/"] button[type="submit"], form[action*="password/change/"] input[type="submit"], .change-password-form .btn-primary',
+                element: '.site-button',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('form[action*="password/change/"] button[type="submit"], form[action*="password/change/"] input[type="submit"], .change-password-form .btn-primary', true)
+            beforeShowPromise: checkElementExists('.site-button', true)
         });
 
         // Final Step
