@@ -69,24 +69,112 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Dashboard Stats Section
+    // Dashboard Stats Section - Overview
     tour.addStep({
-        id: 'dashboard-stats',
-        title: 'Your Dashboard Stats',
-        text: 'Here are your key metrics:',        
+        id: 'dashboard-stats-overview',
+        title: 'Your Dashboard Overview',
+        text: 'Here are your key metrics at a glance:',        
         attachTo: {
             element: '.dashboard-stats',
             on: 'bottom'
         }
     });
 
-    // How It Works Section
+    // Posted Jobs Card
     tour.addStep({
-        id: 'how-it-works',
-        title: 'How It Works',
-        text: 'Follow these steps to get started:',
+        id: 'posted-jobs-card',
+        title: 'Posted Jobs',
+        text: 'Track all the job positions you have posted.',
         attachTo: {
-            element: '.how-it-works',
+            element: '.dashboard-card-2.block-gradient',
+            on: 'top'
+        }
+    });
+
+    // Generated CVs Card
+    tour.addStep({
+        id: 'generated-cvs-card',
+        title: 'Generated CVs',
+        text: 'View the number of CVs generated through the platform.',
+        attachTo: {
+            element: '.dashboard-card-2.block-gradient-2',
+            on: 'top'
+        }
+    });
+
+    // Assigned Tokens Card
+    tour.addStep({
+        id: 'assigned-tokens-card',
+        title: 'Assigned Tokens',
+        text: 'Check your available tokens for platform services.',
+        attachTo: {
+            element: '.dashboard-card-2.block-gradient-3',
+            on: 'top'
+        }
+    });
+
+    // Tokens Consumed Card
+    tour.addStep({
+        id: 'tokens-consumed-card',
+        title: 'Tokens Consumed',
+        text: 'Monitor your token usage and expenses.',
+        attachTo: {
+            element: '.dashboard-card-2.block-gradient-4',
+            on: 'top'
+        }
+    });
+
+    // How It Works Section - Overview
+    tour.addStep({
+        id: 'how-it-works-intro',
+        title: 'How It Works',
+        text: 'Follow these simple steps to get the most out of our platform:',
+        attachTo: {
+            element: '.twm-w-process-steps-2',
+            on: 'top'
+        }
+    });
+
+    // Step 1: Register Your Account
+    tour.addStep({
+        id: 'register-account',
+        title: '1. Register Your Account',
+        text: 'Create an account to access the best job matching and CV generation features.',
+        attachTo: {
+            element: '.bg-clr-sky-light',
+            on: 'top'
+        }
+    });
+
+    // Step 2: Match Your Job
+    tour.addStep({
+        id: 'match-job',
+        title: '2. Match Your Job',
+        text: 'Our system will analyze and match your profile with the most relevant job opportunities.',
+        attachTo: {
+            element: '.bg-clr-yellow-light',
+            on: 'top'
+        }
+    });
+
+    // Step 3: Career Recommendations
+    tour.addStep({
+        id: 'career-recommendations',
+        title: '3. Career Recommendations',
+        text: 'Receive personalized career recommendations based on your profile and skills.',
+        attachTo: {
+            element: '.bg-clr-pink-light',
+            on: 'top'
+        }
+    });
+
+    // Step 4: Generate Your Resume
+    tour.addStep({
+        id: 'generate-resume',
+        title: '4. Generate Your Resume',
+        text: 'Let us create a professional CV tailored to your profile and career goals.',
+        attachTo: {
+            element: '.bg-clr-green-light',
             on: 'top'
         },
         buttons: [
