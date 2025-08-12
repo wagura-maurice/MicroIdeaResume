@@ -1,45 +1,47 @@
-// Dashboard Tour using Shepherd.js
-function initializeTour() {
-    // Initialize the tour
-    const tour = new Shepherd.Tour({
-        useModalOverlay: true,
-        defaultStepOptions: {
-            classes: 'shepherd-theme-custom',
-            scrollTo: { behavior: 'smooth', block: 'center' },
-            cancelIcon: {
-                enabled: true
+/**
+ * Dashboard Tour using Shepherd.js
+ * Provides an interactive tour of the dashboard features
+ */
+
+// Tour configuration
+const TOUR_CONFIG = {
+    useModalOverlay: true,
+    defaultStepOptions: {
+        classes: 'shepherd-theme-custom',
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        cancelIcon: { enabled: true },
+        buttons: [
+            {
+                text: 'Back',
+                action() { return this.back(); },
+                classes: 'shepherd-button-secondary',
+                secondary: true
             },
-            buttons: [
-                {
-                    text: 'Back',
-                    action: function() { return this.back(); },
-                    classes: 'shepherd-button-secondary',
-                    secondary: true
-                },
-                {
-                    text: 'Next',
-                    action: function() { return this.next(); },
-                    classes: 'shepherd-button-primary'
-                }
-            ]
-        }
-    });
-    
-    return tour;
+            {
+                text: 'Next',
+                action() { return this.next(); },
+                classes: 'shepherd-button-primary'
+            }
+        ]
+    }
+};
+
+/**
+ * Initialize and configure the tour
+ * @returns {Shepherd.Tour} Configured tour instance
+ */
+function initializeTour() {
+    return new Shepherd.Tour(TOUR_CONFIG);
 }
 
 // Start the tour when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the tour
+document.addEventListener('DOMContentLoaded', () => {
     const tour = initializeTour();
     
-    // Function to start the tour
-    function startTour() {
-        if (tour.isActive()) {
-            tour.complete();
-        }
+    const startTour = () => {
+        if (tour.isActive()) tour.complete();
         tour.start();
-    }
+    };
 
     // Add steps to the tour
     tour.addStep({
