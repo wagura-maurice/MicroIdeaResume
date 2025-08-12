@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Recommendations',
             text: 'This section shows job recommendations based on your profile and preferences.',
             attachTo: {
-                element: '.panel .panel-default',
+                element: '.twm-right-section-panel .site-bg-gray',
                 on: 'top'
             },
             scrollTo: true
