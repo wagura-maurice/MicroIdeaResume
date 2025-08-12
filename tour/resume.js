@@ -128,6 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#resume_headline_div', true)
         });
 
+        // Resume Headline Edit Button
+        tour.addStep({
+            id: 'resume-headline-edit',
+            title: 'Edit Headline',
+            text: 'Click the edit button to update your professional headline.',
+            attachTo: {
+                element: '#resume_headline_edit',
+                on: 'left'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#resume_headline_edit', true)
+        });
+
         // Key Skills Section
         tour.addStep({
             id: 'key-skills',
@@ -139,6 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollTo: true,
             beforeShowPromise: checkElementExists('#key_skills_div', true)
+        });
+
+        // Key Skills Edit Button
+        tour.addStep({
+            id: 'key-skills-edit',
+            title: 'Edit Skills',
+            text: 'Click here to add, remove, or update your key skills.',
+            attachTo: {
+                element: '#key_skills_edit',
+                on: 'left'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#key_skills_edit', true)
         });
 
         // Employment Section
@@ -154,6 +180,19 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#employment_div', true)
         });
 
+        // Employment Edit Button
+        tour.addStep({
+            id: 'employment-edit',
+            title: 'Edit Work Experience',
+            text: 'Click here to add or update your work experience details.',
+            attachTo: {
+                element: '#employment_edit',
+                on: 'left'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#employment_edit', true)
+        });
+
         // Education Section
         tour.addStep({
             id: 'education',
@@ -165,6 +204,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollTo: true,
             beforeShowPromise: checkElementExists('#education_div', true)
+        });
+
+        // Education Edit Button
+        tour.addStep({
+            id: 'education-edit',
+            title: 'Edit Education',
+            text: 'Click here to update your educational background and qualifications.',
+            attachTo: {
+                element: '#education_edit',
+                on: 'left'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#education_edit', true)
         });
 
         // Accomplishments Section
@@ -180,6 +232,19 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#accomplishment_div', true)
         });
 
+        // Accomplishments Edit Button
+        tour.addStep({
+            id: 'accomplishments-edit',
+            title: 'Edit Accomplishments',
+            text: 'Click here to add or update your professional achievements and awards.',
+            attachTo: {
+                element: '#work_sample_edit',
+                on: 'left'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#work_sample_edit', true)
+        });
+
         // Work Samples Section
         tour.addStep({
             id: 'work-samples',
@@ -188,6 +253,19 @@ document.addEventListener('DOMContentLoaded', () => {
             attachTo: {
                 element: '#work_sample_edit',
                 on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#work_sample_edit', true)
+        });
+
+        // Work Samples Edit Button
+        tour.addStep({
+            id: 'work-samples-edit',
+            title: 'Edit Work Samples',
+            text: 'Click here to add or update your work samples and portfolio items.',
+            attachTo: {
+                element: '#work_sample_edit',
+                on: 'left'
             },
             scrollTo: true,
             beforeShowPromise: checkElementExists('#work_sample_edit', true)
@@ -204,6 +282,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollTo: true,
             beforeShowPromise: checkElementExists('#certification_div', true)
+        });
+
+        // Certifications Edit Button
+        tour.addStep({
+            id: 'certifications-edit',
+            title: 'Edit Certifications',
+            text: 'Click here to add or update your professional certifications and licenses.',
+            attachTo: {
+                element: '#certification_edit',
+                on: 'left'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#certification_edit', true)
         });
 
         // Edit Buttons Information
