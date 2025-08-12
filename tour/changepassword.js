@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Change Password',
             text: 'This section contains your change password form.',
             attachTo: {
-                element: '.twm-right-section-panel .site-bg-gray',
+                element: '.content-admin-main',
                 on: 'top'
             },
             scrollTo: true
