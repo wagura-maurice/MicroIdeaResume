@@ -46,15 +46,25 @@ function waitForJQuery(callback) {
     }
 }
 
-// Helper function to check if element exists
-function checkElementExists(selector) {
+// Helper function to check if element exists and highlight it
+function checkElementExists(selector, highlight = false) {
     return function() {
-        if (!document.querySelector(selector)) {
-            return Promise.resolve().then(() => {
-                tour.next();
-                return { hide: true };
-            });
+        const el = document.querySelector(selector);
+        if (!el) return Promise.resolve().then(() => {
+            tour.next();
+            return { hide: true };
+        });
+        
+        if (highlight) {
+            el.classList.add('shepherd-highlight');
+            setTimeout(() => el.classList.remove('shepherd-highlight'), 1500);
         }
+        
+        // Smooth scroll to element with offset
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+        
         return Promise.resolve();
     };
 }
@@ -132,12 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
     tour.addStep({
         id: 'basic-info-section',
         title: 'Basic Information',
-        text: 'Update your personal details in this section. Make sure all required fields are filled in correctly.',
+        text: 'Update your personal details in this section. All required fields must be filled in correctly.',
         attachTo: {
-            element: 'form[role="form"]',
+            element: 'h4:contains("Basic Information"), [id*="basic"], [id*="Basic"]',
             on: 'top'
         },
-        scrollTo: true
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('h4:contains("Basic Information"), [id*="basic"], [id*="Basic"]', true)
     });
 
     // Basic Info Save Button
@@ -149,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
             element: '#SaveData',
             on: 'top'
         },
-        scrollTo: true,
-        beforeShowPromise: checkElementExists('#SaveData')
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('#SaveData', true)
     });
 
     // Social Media Section
@@ -159,11 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Social Media',
         text: 'Connect your social media profiles to enhance your professional network.',
         attachTo: {
-            element: '#SaveSocial',
-            on: 'left'
+            element: 'h4:contains("Social Network"), [id*="social"], [id*="Social"]',
+            on: 'top'
         },
-        scrollTo: true,
-        beforeShowPromise: checkElementExists('#SaveSocial')
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('h4:contains("Social Network"), [id*="social"], [id*="Social"]', true)
     });
 
     // Social Media Save Button
@@ -175,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
             element: '#SaveSocial',
             on: 'top'
         },
-        scrollTo: true,
-        beforeShowPromise: checkElementExists('#SaveSocial')
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('#SaveSocial', true)
     });
 
     // CV Upload Section
@@ -188,8 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
             element: '#uploadButton',
             on: 'top'
         },
-        scrollTo: true,
-        beforeShowPromise: checkElementExists('#uploadButton')
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('#uploadButton', true)
     });
 
     // Final Step
