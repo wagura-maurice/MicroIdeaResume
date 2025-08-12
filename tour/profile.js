@@ -75,72 +75,91 @@ document.addEventListener('DOMContentLoaded', () => {
     // Basic Information Section
     tour.addStep({
         id: 'basic-information',
-        title: 'Basic Information',
+        title: 'Profile Information',
         text: 'This section contains your basic personal information such as name, email, and contact details.',
+        attachTo: {
+            element: '.page-content',
+            on: 'top'
+        },
+        scrollTo: true
+    });
+
+    // Form Fields Section
+    tour.addStep({
+        id: 'form-fields',
+        title: 'Update Your Details',
+        text: 'You can update your personal information in these form fields. Make sure to fill in all required fields marked with an asterisk (*).',
         attachTo: {
             element: 'form[role="form"]',
             on: 'top'
+        },
+        scrollTo: true
+    });
+
+    // Save Button
+    tour.addStep({
+        id: 'save-button',
+        title: 'Save Your Changes',
+        text: 'After making any updates to your profile, click this button to save your changes.',
+        attachTo: {
+            element: 'button[type="submit"], .btn-primary',
+            on: 'top'
+        },
+        scrollTo: true,
+        beforeShowPromise: function() {
+            // If we can't find the submit button, skip this step
+            if (!document.querySelector('button[type="submit"], .btn-primary')) {
+                return Promise.resolve().then(() => {
+                    tour.next();
+                    return { hide: true };
+                });
+            }
+            return Promise.resolve();
         }
     });
 
-    // Save Changes Button (Basic Info)
+    // Social Media Section (if exists)
     tour.addStep({
-        id: 'save-changes-basic',
-        title: 'Save Your Changes',
-        text: 'After updating your basic information, click this button to save your changes.',
-        attachTo: {
-            element: 'button[type="submit"]',
-            on: 'top'
-        },
-        scrollTo: true
-    });
-
-    // Social Network Section
-    tour.addStep({
-        id: 'social-network',
-        title: 'Social Network',
+        id: 'social-media',
+        title: 'Social Media',
         text: 'Connect your social media profiles to enhance your professional network.',
         attachTo: {
-            element: 'h4:contains("Social Network")',
+            element: '.social-media-section, .social-links, .social-profiles',
             on: 'top'
         },
-        scrollTo: true
+        scrollTo: true,
+        beforeShowPromise: function() {
+            // Skip this step if social media section is not found
+            if (!document.querySelector('.social-media-section, .social-links, .social-profiles')) {
+                return Promise.resolve().then(() => {
+                    tour.next();
+                    return { hide: true };
+                });
+            }
+            return Promise.resolve();
+        }
     });
 
-    // Save Changes Button (Social Network)
+    // Resume Upload Section (if exists)
     tour.addStep({
-        id: 'save-changes-social',
-        title: 'Save Social Media Links',
-        text: 'Remember to save any changes made to your social media links.',
+        id: 'resume-upload',
+        title: 'Upload Resume',
+        text: 'You can upload your resume/CV here to make it easier to apply for jobs.',
         attachTo: {
-            element: 'button[type="submit"]',
+            element: '.resume-upload, .file-upload, .upload-section',
             on: 'top'
         },
-        scrollTo: true
-    });
-
-    // Attach Resume Section
-    tour.addStep({
-        id: 'attach-resume',
-        title: 'Attach Resume',
-        text: 'Upload your resume/CV to make it easier to apply for jobs and share your professional background.',
-        attachTo: {
-            element: 'h4:contains("Attach Resume")',
-            on: 'top'
-        },
-        scrollTo: true
-    });
-
-    // Select CV File Button
-    tour.addStep({
-        id: 'select-cv',
-        title: 'Upload Your CV',
-        text: 'Click here to select and upload your CV file from your device.',
-        attachTo: {
-            element: 'input[type="file"]',
-            on: 'top'
-        },
-        scrollTo: true
+        scrollTo: true,
+        beforeShowPromise: function() {
+            // Skip this step if resume upload section is not found
+            if (!document.querySelector('.resume-upload, .file-upload, .upload-section')) {
+                return Promise.resolve().then(() => {
+                    tour.next();
+                    return { hide: true };
+                });
+            }
+            return Promise.resolve();
+        }
     });
 
     // Final Step
