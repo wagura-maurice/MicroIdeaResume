@@ -46,6 +46,19 @@ function waitForJQuery(callback) {
     }
 }
 
+// Helper function to check if element exists
+function checkElementExists(selector) {
+    return function() {
+        if (!document.querySelector(selector)) {
+            return Promise.resolve().then(() => {
+                tour.next();
+                return { hide: true };
+            });
+        }
+        return Promise.resolve();
+    };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     waitForJQuery(function() {
         // Check if multiselect is available, if not, define a dummy function to prevent errors
@@ -115,58 +128,68 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTo: true
     });
 
-    // Profile Form Section
+    // Basic Information Section
     tour.addStep({
-        id: 'profile-form',
-        title: 'Profile Form',
-        text: 'This is where you can update your profile information. Fill in your details and save your changes.',
+        id: 'basic-info-section',
+        title: 'Basic Information',
+        text: 'Update your personal details in this section. Make sure all required fields are filled in correctly.',
         attachTo: {
-            element: 'form[role="form"], .profile-form, form',
+            element: 'form[role="form"]',
             on: 'top'
         },
-        scrollTo: true,
-        beforeShowPromise: function() {
-            // Try to find any form on the page
-            const form = document.querySelector('form[role="form"]') || 
-                        document.querySelector('.profile-form') || 
-                        document.querySelector('form');
-            
-            if (!form) {
-                return Promise.resolve().then(() => {
-                    tour.next();
-                    return { hide: true };
-                });
-            }
-            return Promise.resolve();
-        }
+        scrollTo: true
     });
 
-    // Save Button (with more flexible selector)
+    // Basic Info Save Button
     tour.addStep({
-        id: 'save-button',
-        title: 'Save Your Changes',
-        text: 'After making any updates to your profile, click this button to save your changes.',
+        id: 'save-basic-info',
+        title: 'Save Basic Information',
+        text: 'Click this button to save your basic information after making any changes.',
         attachTo: {
-            element: 'button[type="submit"], .btn-primary, .btn, input[type="submit"], .save-button',
+            element: '#SaveData',
             on: 'top'
         },
         scrollTo: true,
-        beforeShowPromise: function() {
-            // Try multiple selectors for the save button
-            const saveButton = document.querySelector('button[type="submit"]') ||
-                             document.querySelector('.btn-primary') ||
-                             document.querySelector('.btn') ||
-                             document.querySelector('input[type="submit"]') ||
-                             document.querySelector('.save-button');
-            
-            if (!saveButton) {
-                return Promise.resolve().then(() => {
-                    tour.next();
-                    return { hide: true };
-                });
-            }
-            return Promise.resolve();
-        }
+        beforeShowPromise: checkElementExists('#SaveData')
+    });
+
+    // Social Media Section
+    tour.addStep({
+        id: 'social-media-section',
+        title: 'Social Media',
+        text: 'Connect your social media profiles to enhance your professional network.',
+        attachTo: {
+            element: '#SaveSocial',
+            on: 'left'
+        },
+        scrollTo: true,
+        beforeShowPromise: checkElementExists('#SaveSocial')
+    });
+
+    // Social Media Save Button
+    tour.addStep({
+        id: 'save-social-media',
+        title: 'Save Social Media',
+        text: 'Click this button to save your social media links.',
+        attachTo: {
+            element: '#SaveSocial',
+            on: 'top'
+        },
+        scrollTo: true,
+        beforeShowPromise: checkElementExists('#SaveSocial')
+    });
+
+    // CV Upload Section
+    tour.addStep({
+        id: 'cv-upload-section',
+        title: 'Upload Your CV',
+        text: 'Click this button to select and upload your CV file from your device.',
+        attachTo: {
+            element: '#uploadButton',
+            on: 'top'
+        },
+        scrollTo: true,
+        beforeShowPromise: checkElementExists('#uploadButton')
     });
 
     // Final Step
