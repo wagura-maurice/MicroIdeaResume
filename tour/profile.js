@@ -47,39 +47,41 @@ function waitForJQuery(callback) {
 }
 
 // Helper function to check if element exists and highlight it
-function checkElementExists(selector, highlight = false, textContent = '') {
-    return function() {
-        // Get all matching elements
-        const elements = Array.from(document.querySelectorAll(selector));
-        let el = elements[0]; // Default to first match
-        
-        // If we're looking for specific text content
-        if (textContent) {
-            const found = elements.find(el => 
-                el.textContent && 
-                el.textContent.trim().toLowerCase().includes(textContent.toLowerCase())
-            );
-            if (found) el = found;
-        }
-        
-        if (!el) {
-            return Promise.resolve().then(() => {
-                tour.next();
-                return { hide: true };
-            });
-        }
-        
-        if (highlight) {
-            el.classList.add('shepherd-highlight');
-            setTimeout(() => el.classList.remove('shepherd-highlight'), 1500);
-        }
-        
-        // Smooth scroll to element with offset
-        const yOffset = -80;
-        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({top: y, behavior: 'smooth'});
-        
-        return Promise.resolve();
+function createCheckElementExists(tour) {
+    return function(selector, highlight = false, textContent = '') {
+        return function() {
+            // Get all matching elements
+            const elements = Array.from(document.querySelectorAll(selector));
+            let el = elements[0]; // Default to first match
+            
+            // If we're looking for specific text content
+            if (textContent) {
+                const found = elements.find(el => 
+                    el.textContent && 
+                    el.textContent.trim().toLowerCase().includes(textContent.toLowerCase())
+                );
+                if (found) el = found;
+            }
+            
+            if (!el) {
+                return Promise.resolve().then(() => {
+                    if (tour) tour.next();
+                    return { hide: true };
+                });
+            }
+            
+            if (highlight) {
+                el.classList.add('shepherd-highlight');
+                setTimeout(() => el.classList.remove('shepherd-highlight'), 1500);
+            }
+            
+            // Smooth scroll to element with offset
+            const yOffset = -80;
+            const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({top: y, behavior: 'smooth'});
+            
+            return Promise.resolve();
+        };
     };
 }
 
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         const tour = initializeTour();
+        const checkElementExists = createCheckElementExists(tour);
         
         const startTour = () => {
             if (tour.isActive()) tour.complete();
