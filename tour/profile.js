@@ -72,33 +72,82 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Main Content Area
+    // Basic Information Section
     tour.addStep({
-        id: 'main-content',
-        title: 'Your Profile',
-        text: 'This is where you can view and edit your profile information.',
-        attachTo: {
-            element: '.page-content',
-            on: 'top'
-        }
-    });
-
-    // Profile Form
-    tour.addStep({
-        id: 'profile-form',
-        title: 'Profile Information',
-        text: 'Update your personal details, contact information, and professional summary here.',
+        id: 'basic-information',
+        title: 'Basic Information',
+        text: 'This section contains your basic personal information such as name, email, and contact details.',
         attachTo: {
             element: 'form[role="form"]',
             on: 'top'
         }
     });
 
+    // Save Changes Button (Basic Info)
+    tour.addStep({
+        id: 'save-changes-basic',
+        title: 'Save Your Changes',
+        text: 'After updating your basic information, click this button to save your changes.',
+        attachTo: {
+            element: 'button[type="submit"]',
+            on: 'top'
+        },
+        scrollTo: true
+    });
+
+    // Social Network Section
+    tour.addStep({
+        id: 'social-network',
+        title: 'Social Network',
+        text: 'Connect your social media profiles to enhance your professional network.',
+        attachTo: {
+            element: 'h4:contains("Social Network")',
+            on: 'top'
+        },
+        scrollTo: true
+    });
+
+    // Save Changes Button (Social Network)
+    tour.addStep({
+        id: 'save-changes-social',
+        title: 'Save Social Media Links',
+        text: 'Remember to save any changes made to your social media links.',
+        attachTo: {
+            element: 'button[type="submit"]',
+            on: 'top'
+        },
+        scrollTo: true
+    });
+
+    // Attach Resume Section
+    tour.addStep({
+        id: 'attach-resume',
+        title: 'Attach Resume',
+        text: 'Upload your resume/CV to make it easier to apply for jobs and share your professional background.',
+        attachTo: {
+            element: 'h4:contains("Attach Resume")',
+            on: 'top'
+        },
+        scrollTo: true
+    });
+
+    // Select CV File Button
+    tour.addStep({
+        id: 'select-cv',
+        title: 'Upload Your CV',
+        text: 'Click here to select and upload your CV file from your device.',
+        attachTo: {
+            element: 'input[type="file"]',
+            on: 'top'
+        },
+        scrollTo: true
+    });
+
     // Final Step
     tour.addStep({
         id: 'complete',
         title: 'Tour Complete!',
-        text: 'You now know how to navigate your profile. Remember to save any changes you make!',
+        text: 'You now know how to navigate and update your profile. Remember to save any changes you make!',
         buttons: [
             {
                 text: 'Finish',
