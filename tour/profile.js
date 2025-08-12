@@ -155,18 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         beforeShowPromise: checkElementExists('.twm-right-section-panel.site-bg-gray', true)
     });
 
-    // Profile Information Section
-    tour.addStep({
-        id: 'profile-information',
-        title: 'Profile Information',
-        text: 'This section contains your basic information, your social network and attach resume sections.',
-        attachTo: {
-            element: '.twm-right-section-panel.site-bg-gray',
-            on: 'top'
-        },
-        scrollTo: { behavior: 'smooth', block: 'center' },
-    });
-
     // Basic Information Section
     tour.addStep({
         id: 'basic-info-section',

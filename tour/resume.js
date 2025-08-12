@@ -11,12 +11,14 @@ function initializeTour() {
             buttons: [
                 {
                     text: 'Back',
-                    action: function() { return this.back(); },
+                    action() { return this.back(); },
+                    classes: 'shepherd-button-secondary',
                     secondary: true
                 },
                 {
                     text: 'Next',
-                    action: function() { return this.next(); }
+                    action() { return this.next(); },
+                    classes: 'shepherd-button-primary'
                 }
             ]
         }
