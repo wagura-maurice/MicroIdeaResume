@@ -124,16 +124,17 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#triggertour', true)
         });
 
-        // Recommendations Section
+        // Main Content Area
         tour.addStep({
-            id: 'recommendations-section',
+            id: 'main-content',
             title: 'Recommendations',
-            text: 'This section shows job recommendations based on your profile and preferences.',
+            text: 'Here you can view and manage your job recommendations.',
             attachTo: {
                 element: '.panel .panel-default',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
+            beforeShowPromise: checkElementExists('.panel .panel-default', true)
         });
 
         // Action Buttons

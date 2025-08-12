@@ -140,16 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#triggertour', true)
         });
 
-        // Change Password Section
+        // Main Content Area
         tour.addStep({
-            id: 'change-password-section',
+            id: 'main-content',
             title: 'Change Password',
-            text: 'This section contains your change password form.',
+            text: 'Use this form to update your account password.',
             attachTo: {
                 element: '.content-admin-main',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
+            beforeShowPromise: checkElementExists('.content-admin-main', true)
         });
 
         // Current Password Field

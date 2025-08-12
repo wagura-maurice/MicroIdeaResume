@@ -138,7 +138,21 @@ document.addEventListener('DOMContentLoaded', () => {
         attachTo: {
             element: '#triggertour',
             on: 'left'
-        }
+        },
+        scrollTo: { behavior: 'smooth', block: 'center' },
+    });
+
+    // Profile Content Section
+    tour.addStep({
+        id: 'profile-content',
+        title: 'Profile Content',
+        text: 'This is where you can view and edit your profile information.',
+        attachTo: {
+            element: '.twm-right-section-panel.site-bg-gray',
+            on: 'top'
+        },
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('.twm-right-section-panel.site-bg-gray', true)
     });
 
     // Profile Information Section
