@@ -35,13 +35,32 @@ function initializeTour() {
 }
 
 // Start the tour when DOM is ready
+// Wait for jQuery to be loaded
+function waitForJQuery(callback) {
+    if (window.jQuery) {
+        callback();
+    } else {
+        setTimeout(function() {
+            waitForJQuery(callback);
+        }, 100);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    const tour = initializeTour();
-    
-    const startTour = () => {
-        if (tour.isActive()) tour.complete();
-        tour.start();
-    };
+    waitForJQuery(function() {
+        // Check if multiselect is available, if not, define a dummy function to prevent errors
+        if (typeof $.fn.multiselect === 'undefined') {
+            $.fn.multiselect = function() {
+                return this;
+            };
+        }
+        
+        const tour = initializeTour();
+        
+        const startTour = () => {
+            if (tour.isActive()) tour.complete();
+            tour.start();
+        };
 
     // Welcome step
     tour.addStep({
@@ -96,63 +115,51 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTo: true
     });
 
-    // Save Button
+    // Profile Form Section
+    tour.addStep({
+        id: 'profile-form',
+        title: 'Profile Form',
+        text: 'This is where you can update your profile information. Fill in your details and save your changes.',
+        attachTo: {
+            element: 'form[role="form"], .profile-form, form',
+            on: 'top'
+        },
+        scrollTo: true,
+        beforeShowPromise: function() {
+            // Try to find any form on the page
+            const form = document.querySelector('form[role="form"]') || 
+                        document.querySelector('.profile-form') || 
+                        document.querySelector('form');
+            
+            if (!form) {
+                return Promise.resolve().then(() => {
+                    tour.next();
+                    return { hide: true };
+                });
+            }
+            return Promise.resolve();
+        }
+    });
+
+    // Save Button (with more flexible selector)
     tour.addStep({
         id: 'save-button',
         title: 'Save Your Changes',
         text: 'After making any updates to your profile, click this button to save your changes.',
         attachTo: {
-            element: 'button[type="submit"], .btn-primary',
+            element: 'button[type="submit"], .btn-primary, .btn, input[type="submit"], .save-button',
             on: 'top'
         },
         scrollTo: true,
         beforeShowPromise: function() {
-            // If we can't find the submit button, skip this step
-            if (!document.querySelector('button[type="submit"], .btn-primary')) {
-                return Promise.resolve().then(() => {
-                    tour.next();
-                    return { hide: true };
-                });
-            }
-            return Promise.resolve();
-        }
-    });
-
-    // Social Media Section (if exists)
-    tour.addStep({
-        id: 'social-media',
-        title: 'Social Media',
-        text: 'Connect your social media profiles to enhance your professional network.',
-        attachTo: {
-            element: '.social-media-section, .social-links, .social-profiles',
-            on: 'top'
-        },
-        scrollTo: true,
-        beforeShowPromise: function() {
-            // Skip this step if social media section is not found
-            if (!document.querySelector('.social-media-section, .social-links, .social-profiles')) {
-                return Promise.resolve().then(() => {
-                    tour.next();
-                    return { hide: true };
-                });
-            }
-            return Promise.resolve();
-        }
-    });
-
-    // Resume Upload Section (if exists)
-    tour.addStep({
-        id: 'resume-upload',
-        title: 'Upload Resume',
-        text: 'You can upload your resume/CV here to make it easier to apply for jobs.',
-        attachTo: {
-            element: '.resume-upload, .file-upload, .upload-section',
-            on: 'top'
-        },
-        scrollTo: true,
-        beforeShowPromise: function() {
-            // Skip this step if resume upload section is not found
-            if (!document.querySelector('.resume-upload, .file-upload, .upload-section')) {
+            // Try multiple selectors for the save button
+            const saveButton = document.querySelector('button[type="submit"]') ||
+                             document.querySelector('.btn-primary') ||
+                             document.querySelector('.btn') ||
+                             document.querySelector('input[type="submit"]') ||
+                             document.querySelector('.save-button');
+            
+            if (!saveButton) {
                 return Promise.resolve().then(() => {
                     tour.next();
                     return { hide: true };
@@ -176,21 +183,23 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
 
-    // Add event listener for the tour trigger button
-    const tourTrigger = document.getElementById('triggertour');
-    if (tourTrigger) {
-        tourTrigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            startTour();
-        });
-    }
+        // Add event listener for the tour trigger button
+        const tourTrigger = document.getElementById('triggertour');
+        if (tourTrigger) {
+            tourTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                startTour();
+            });
+        }
 
-    // Auto-start tour on first visit
-    if (!localStorage.getItem('profileTourCompleted')) {
-        setTimeout(() => {
-            startTour();
-            localStorage.setItem('profileTourCompleted', 'true');
-        }, 1000);
-    }
+        // Auto-start tour on first visit
+        if (!localStorage.getItem('profileTourCompleted')) {
+            // Wait a bit longer to ensure all elements are loaded
+            setTimeout(() => {
+                startTour();
+                localStorage.setItem('profileTourCompleted', 'true');
+            }, 1500);
+        }
+    }); // End of waitForJQuery callback
 });
