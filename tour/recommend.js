@@ -125,62 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Recommendations',
             text: 'This section shows job recommendations based on your profile and preferences.',
             attachTo: {
-                element: '.content-admin-main',
+                element: '.panel .panel-default',
                 on: 'top'
             },
             scrollTo: true
         });
 
-        // Search and Filters
-        tour.addStep({
-            id: 'search-filters',
-            title: 'Search & Filters',
-            text: 'Use these options to filter and search for specific job recommendations.',
-            attachTo: {
-                element: '.filter-section, .search-container',
-                on: 'top'
-            },
-            scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('.filter-section, .search-container', true)
-        });
-
-        // Job Listings
-        tour.addStep({
-            id: 'job-listings',
-            title: 'Job Listings',
-            text: 'Browse through the list of recommended jobs that match your profile.',
-            attachTo: {
-                element: '.job-listings, .recommendations-list',
-                on: 'top'
-            },
-            scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('.job-listings, .recommendations-list', true)
-        });
-
-        // Job Details
-        tour.addStep({
-            id: 'job-details',
-            title: 'Job Details',
-            text: 'Click on a job to view more information and apply.',
-            attachTo: {
-                element: '.job-details, .recommendation-item',
-                on: 'left'
-            },
-            scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('.job-details, .recommendation-item', true)
-        });
-
         // Action Buttons
         tour.addStep({
             id: 'action-buttons',
-            title: 'Actions',
-            text: 'Use these buttons to save jobs or apply directly.',
+            title: 'Generate recommendations',
+            text: 'Click this button to generate job recommendations based on your profile and preferences.',
             attachTo: {
-                element: '.action-buttons, .btn-apply',
+                element: '#start-task-btn',
                 on: 'top'
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('.action-buttons, .btn-apply', true)
+            beforeShowPromise: checkElementExists('#start-task-btn', true)
         });
 
         // Final Step
