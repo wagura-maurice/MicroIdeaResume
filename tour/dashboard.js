@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'How It Works',
         text: 'Follow these simple steps to get the most out of our platform:',
         attachTo: {
-            element: '.twm-w-process-steps-2',
+            element: '.section-head.left.wt-small-separator-outer',
             on: 'top'
         }
     });
