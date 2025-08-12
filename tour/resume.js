@@ -115,28 +115,107 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#triggertour', true)
         });
 
-        // Resume List Section
+        // Resume Headline Section
         tour.addStep({
-            id: 'resume-list',
-            title: 'Your Resumes',
-            text: 'View and manage all your uploaded resumes in this section.',
+            id: 'resume-headline',
+            title: 'Resume Headline',
+            text: 'This is your professional headline that appears at the top of your resume. Make it catchy and relevant to your career goals.',
+            attachTo: {
+                element: '#resume_headline_div',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#resume_headline_div', true)
+        });
+
+        // Key Skills Section
+        tour.addStep({
+            id: 'key-skills',
+            title: 'Key Skills',
+            text: 'List your core competencies and technical skills here. These help employers quickly identify your areas of expertise.',
+            attachTo: {
+                element: '#key_skills_div',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#key_skills_div', true)
+        });
+
+        // Employment Section
+        tour.addStep({
+            id: 'employment',
+            title: 'Work Experience',
+            text: 'Detail your professional work history, including company names, positions, and key achievements.',
+            attachTo: {
+                element: '#employment_div',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#employment_div', true)
+        });
+
+        // Education Section
+        tour.addStep({
+            id: 'education',
+            title: 'Education',
+            text: 'Add your academic qualifications, including degrees, institutions, and graduation dates.',
+            attachTo: {
+                element: '#education_div',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#education_div', true)
+        });
+
+        // Accomplishments Section
+        tour.addStep({
+            id: 'accomplishments',
+            title: 'Accomplishments',
+            text: 'Highlight your professional achievements, awards, and significant contributions.',
+            attachTo: {
+                element: '#accomplishment_div',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#accomplishment_div', true)
+        });
+
+        // Work Samples Section
+        tour.addStep({
+            id: 'work-samples',
+            title: 'Work Samples',
+            text: 'Showcase examples of your work, projects, or portfolio pieces to demonstrate your skills.',
+            attachTo: {
+                element: '#work_sample_edit',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#work_sample_edit', true)
+        });
+
+        // Certifications Section
+        tour.addStep({
+            id: 'certifications',
+            title: 'Certifications',
+            text: 'List any professional certifications or licenses you\'ve obtained.',
+            attachTo: {
+                element: '#certification_div',
+                on: 'top'
+            },
+            scrollTo: true,
+            beforeShowPromise: checkElementExists('#certification_div', true)
+        });
+
+        // Edit Buttons Information
+        tour.addStep({
+            id: 'edit-buttons',
+            title: 'Editing Your Information',
+            text: 'Look for the edit icons (✏️) next to each section to update your information at any time.',
             attachTo: {
                 element: '.content-admin-main',
                 on: 'top'
             },
             scrollTo: true
-        });
-
-        // Upload Button
-        tour.addStep({
-            id: 'upload-button',
-            title: 'Upload Resume',
-            text: 'Click the "Upload New CV" button to add a new resume to your profile.',
-            attachTo: {
-                element: 'a[href*="upload"], .btn-primary',
-                on: 'top'
-            },
-            beforeShowPromise: checkElementExists('a[href*="upload"], .btn-primary', true)
         });
 
         // Final Step
