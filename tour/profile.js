@@ -47,13 +47,27 @@ function waitForJQuery(callback) {
 }
 
 // Helper function to check if element exists and highlight it
-function checkElementExists(selector, highlight = false) {
+function checkElementExists(selector, highlight = false, textContent = '') {
     return function() {
-        const el = document.querySelector(selector);
-        if (!el) return Promise.resolve().then(() => {
-            tour.next();
-            return { hide: true };
-        });
+        // Get all matching elements
+        const elements = Array.from(document.querySelectorAll(selector));
+        let el = elements[0]; // Default to first match
+        
+        // If we're looking for specific text content
+        if (textContent) {
+            const found = elements.find(el => 
+                el.textContent && 
+                el.textContent.trim().toLowerCase().includes(textContent.toLowerCase())
+            );
+            if (found) el = found;
+        }
+        
+        if (!el) {
+            return Promise.resolve().then(() => {
+                tour.next();
+                return { hide: true };
+            });
+        }
         
         if (highlight) {
             el.classList.add('shepherd-highlight');
@@ -144,11 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Basic Information',
         text: 'Update your personal details in this section. All required fields must be filled in correctly.',
         attachTo: {
-            element: 'h4:contains("Basic Information"), [id*="basic"], [id*="Basic"]',
+            element: '[id*="basic"], [id*="Basic"], h4',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('h4:contains("Basic Information"), [id*="basic"], [id*="Basic"]', true)
+        beforeShowPromise: checkElementExists('[id*="basic"], [id*="Basic"], h4', true, 'Basic Information')
     });
 
     // Basic Info Save Button
@@ -170,11 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Social Media',
         text: 'Connect your social media profiles to enhance your professional network.',
         attachTo: {
-            element: 'h4:contains("Social Network"), [id*="social"], [id*="Social"]',
+            element: '[id*="social"], [id*="Social"], h4',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('h4:contains("Social Network"), [id*="social"], [id*="Social"]', true)
+        beforeShowPromise: checkElementExists('[id*="social"], [id*="Social"], h4', true, 'Social Network')
     });
 
     // Social Media Save Button

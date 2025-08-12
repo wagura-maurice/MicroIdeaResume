@@ -71,6 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Navigation Help
+    tour.addStep({
+        id: 'help-button',
+        title: 'Need Help?',
+        text: 'Click the help button (?) anytime to restart this tour.',
+        attachTo: {
+            element: '#triggertour',
+            on: 'left'
+        }
+    });
+
     // Dashboard Stats Section - Overview
     tour.addStep({
         id: 'dashboard-stats-overview',
@@ -185,6 +196,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 action: tour.back,
                 classes: 'shepherd-button-secondary'
             },
+            {
+                text: 'Finish',
+                action: tour.complete,
+                classes: 'shepherd-button-primary'
+            }
+        ]
+    });
+
+    // Final Step
+    tour.addStep({
+        id: 'complete',
+        title: 'Tour Complete!',
+        text: 'You now know how to navigate and use the dashboard.',
+        buttons: [
             {
                 text: 'Finish',
                 action: tour.complete,
