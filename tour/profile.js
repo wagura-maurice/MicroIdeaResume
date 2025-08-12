@@ -211,11 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Attach Resume',
         text: 'Upload your resume to enhance your professional network.',
         attachTo: {
-            element: '.panel-body .wt-panel-body .p-a20',
+            element: '.panel .panel-default .mb-12',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('.panel-body .wt-panel-body .p-a20', true, 'Attach Resume')
+        beforeShowPromise: checkElementExists('.panel .panel-default .mb-12', true, 'Attach Resume')
     });
 
     // CV Upload Section
