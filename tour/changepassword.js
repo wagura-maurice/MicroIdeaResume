@@ -140,6 +140,18 @@ document.addEventListener('DOMContentLoaded', () => {
             beforeShowPromise: checkElementExists('#triggertour', true)
         });
 
+        // Change Password Section
+        tour.addStep({
+            id: 'change-password-section',
+            title: 'Change Password',
+            text: 'This section contains your change password form.',
+            attachTo: {
+                element: 'twm-right-section-panel site-bg-gray',
+                on: 'top'
+            },
+            scrollTo: true
+        });
+
         // Current Password Field
         tour.addStep({
             id: 'current-password',
