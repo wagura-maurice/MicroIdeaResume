@@ -86,10 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
     tour.addStep({
         id: 'dashboard-stats-overview',
         title: 'Your Dashboard Overview',
-        text: 'Here are your key metrics at a glance:',        
+        text: 'Here are your key metrics at a glance:',
         attachTo: {
-            element: '.dashboard-stats',
+            element: '.dashboard-stats, .stats-container, .stat-cards, [class*="stat"], [class*="card"]',
             on: 'bottom'
+        },
+        beforeShowPromise: function() {
+            // Try to find any stats container
+            const statsContainer = document.querySelector('.dashboard-stats, .stats-container, .stat-cards, [class*="stat"], [class*="card"]');
+            if (!statsContainer) {
+                return Promise.resolve().then(() => {
+                    tour.next();
+                    return { hide: true };
+                });
+            }
+            return Promise.resolve();
         }
     });
 
