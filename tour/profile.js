@@ -159,11 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Basic Information',
         text: 'Update your personal details in this section. All required fields must be filled in correctly.',
         attachTo: {
-            element: '.panel-body .wt-panel-body .p-a20 .m-b30',
+            element: '#basic_info',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('.panel-body .wt-panel-body .p-a20 .m-b30', true, 'Basic Information')
+        beforeShowPromise: checkElementExists('#basic_info', true, 'Basic Information')
     });
 
     // Basic Info Save Button
@@ -185,11 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Social Media',
         text: 'Connect your social media profiles to enhance your professional network.',
         attachTo: {
-            element: '.panel-body .wt-panel-body .p-a20 .m-b30',
+            element: '#social_network',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('.panel-body .wt-panel-body .p-a20 .m-b30', true, 'Social Network')
+        beforeShowPromise: checkElementExists('#social_network', true, 'Social Network')
     });
 
     // Social Media Save Button
@@ -211,11 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Attach Resume',
         text: 'Upload your resume to enhance your professional network.',
         attachTo: {
-            element: '.panel .panel-default .mb-12',
+            element: '#attach_resume',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('.panel .panel-default .mb-12', true, 'Attach Resume')
+        beforeShowPromise: checkElementExists('#attach_resume', true, 'Attach Resume')
     });
 
     // CV Upload Section
