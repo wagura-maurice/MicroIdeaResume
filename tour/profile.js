@@ -61,64 +61,71 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
 
-    // Profile Navigation
+    // Navigation Help
     tour.addStep({
-        id: 'profile-navigation',
-        title: 'Profile Navigation',
-        text: 'Use the left sidebar to navigate between different sections of your profile.',
+        id: 'help-button',
+        title: 'Need Help?',
+        text: 'Click the help button (?) anytime to restart this tour.',
         attachTo: {
-            element: '.side-bar-st-1',
-            on: 'right'
+            element: '#triggertour',
+            on: 'left'
         }
     });
 
-    // Profile Overview Section
+    // Main Content Area
     tour.addStep({
-        id: 'profile-overview',
-        title: 'Profile Overview',
-        text: 'This section shows your basic profile information and statistics.',
+        id: 'main-content',
+        title: 'Your Profile',
+        text: 'This is where you can view and edit your profile information.',
         attachTo: {
-            element: '.twm-dash-candidates-profile',
+            element: '.page-content',
             on: 'top'
         }
     });
 
-    // Personal Information
+    // Profile Form
     tour.addStep({
-        id: 'personal-info',
-        title: 'Personal Information',
-        text: 'View and edit your personal details, contact information, and professional summary.',
+        id: 'profile-form',
+        title: 'Profile Information',
+        text: 'Update your personal details, contact information, and professional summary here.',
         attachTo: {
-            element: '.twm-dashboard-account-detail',
+            element: 'form[role="form"]',
             on: 'top'
         }
     });
 
-    // Profile Completion
+    // Final Step
     tour.addStep({
-        id: 'profile-completion',
-        title: 'Profile Completion',
-        text: 'Track your profile completion status and see what information you can add to improve your profile.',
-        attachTo: {
-            element: '.twm-dash-profile-complete',
-            on: 'top'
-        }
+        id: 'complete',
+        title: 'Tour Complete!',
+        text: 'You now know how to navigate your profile. Remember to save any changes you make!',
+        buttons: [
+            {
+                text: 'Finish',
+                action: tour.complete,
+                classes: 'shepherd-button-primary'
+            }
+        ]
     });
 
-    // Skills & Expertise
-    tour.addStep({
-        id: 'skills-expertise',
-        title: 'Skills & Expertise',
-        text: 'Manage your skills and expertise to help match with relevant opportunities.',
-        attachTo: {
-            element: '.twm-dash-my-skills',
-            on: 'top'
-        }
-    });
+    // Add event listener for the tour trigger button
+    const tourTrigger = document.getElementById('triggertour');
+    if (tourTrigger) {
+        tourTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            startTour();
+        });
+    }
 
-    // Work Experience
-    tour.addStep({
-        id: 'work-experience',
+    // Auto-start tour on first visit
+    if (!localStorage.getItem('profileTourCompleted')) {
+        setTimeout(() => {
+            startTour();
+            localStorage.setItem('profileTourCompleted', 'true');
+        }, 1000);
+    }
+});
         title: 'Work Experience',
         text: 'Add and manage your work history to showcase your professional background.',
         attachTo: {
