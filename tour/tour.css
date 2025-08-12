@@ -1,1 +1,87 @@
-/* Tour CSS */
+/* Shepherd.js Tour Styling */
+.shepherd-theme-custom {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+}
+
+.shepherd-theme-custom .shepherd-header {
+    background-color: #2a2f45;
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.shepherd-theme-custom .shepherd-title {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0;
+}
+
+.shepherd-theme-custom .shepherd-text {
+    color: #4a4a4a;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 20px;
+}
+
+.shepherd-theme-custom .shepherd-footer {
+    padding: 0 20px 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+.shepherd-theme-custom .shepherd-button {
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.shepherd-theme-custom .shepherd-button.shepherd-button-primary {
+    background-color: #2a2f45;
+    border: 1px solid #2a2f45;
+}
+
+.shepherd-theme-custom .shepherd-button.shepherd-button-primary:hover {
+    background-color: #1a1f35;
+    border-color: #1a1f35;
+}
+
+.shepherd-theme-custom .shepherd-button.shepherd-button-secondary {
+    background-color: #f8f9fa;
+    color: #2a2f45;
+    border: 1px solid #dee2e6;
+}
+
+.shepherd-theme-custom .shepherd-button.shepherd-button-secondary:hover {
+    background-color: #e9ecef;
+}
+
+.shepherd-theme-custom .shepherd-cancel-icon {
+    color: #6c757d;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.shepherd-theme-custom .shepherd-cancel-icon:hover {
+    color: #495057;
+}
+
+/* Highlight the current element being shown */
+.shepherd-target.shepherd-enabled {
+    box-shadow: 0 0 0 4px rgba(42, 47, 69, 0.5);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .shepherd-theme-custom {
+        max-width: 90%;
+        margin: 0 10px;
+    }
+    
+    .shepherd-theme-custom .shepherd-text {
+        font-size: 14px;
+    }
+}
