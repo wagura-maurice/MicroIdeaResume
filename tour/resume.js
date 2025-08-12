@@ -5,14 +5,27 @@ function initializeTour() {
         defaultStepOptions: {
             classes: 'shepherd-theme-custom',
             scrollTo: { behavior: 'smooth', block: 'center' },
-            cancelIcon: { enabled: true }
+            cancelIcon: {
+                enabled: true
+            },
+            buttons: [
+                {
+                    text: 'Back',
+                    action: function() { return this.back(); },
+                    secondary: true
+                },
+                {
+                    text: 'Next',
+                    action: function() { return this.next(); }
+                }
+            ]
         }
     });
 }
 
-// Helper function to check if element exists
+// Helper function to check if element exists and handle the promise
 function createCheckElementExists(tour) {
-    return function(selector) {
+    return function(selector, scrollToElement = false) {
         return new Promise((resolve) => {
             const el = document.querySelector(selector);
             if (!el) {
@@ -20,21 +33,44 @@ function createCheckElementExists(tour) {
                 tour.next();
                 return resolve();
             }
-            el.classList.add('shepherd-highlight');
-            setTimeout(() => el.classList.remove('shepherd-highlight'), 1500);
+            
+            if (scrollToElement) {
+                el.classList.add('shepherd-highlight');
+                setTimeout(() => el.classList.remove('shepherd-highlight'), 1500);
+                
+                const yOffset = -80;
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+            
             resolve();
         });
     };
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const waitForJQuery = (callback) => window.jQuery ? callback() : setTimeout(() => waitForJQuery(callback), 100);
+    // Wait for jQuery to be loaded
+    const waitForJQuery = (callback) => {
+        if (window.jQuery) {
+            callback();
+        } else {
+            setTimeout(() => waitForJQuery(callback), 100);
+        }
+    };
 
     waitForJQuery(function() {
         const tour = initializeTour();
         const checkElementExists = createCheckElementExists(tour);
+        
+        // Function to start the tour
+        const startTour = () => {
+            if (tour.isActive()) {
+                tour.complete();
+            }
+            tour.start();
+        };
 
-        // Welcome step
+        // Welcome Step
         tour.addStep({
             id: 'welcome',
             title: 'Resume Management',
@@ -43,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.logo-header',
                 on: 'bottom'
             },
+            scrollTo: true,
             buttons: [
                 {
                     text: 'Next',
@@ -52,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         });
 
+        // Main Navigation
         tour.addStep({
             id: 'main-navigation',
             title: 'Main Navigation',
@@ -59,10 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
             attachTo: {
                 element: '.side-bar-st-1',
                 on: 'right'
-            }
+            },
+            scrollTo: { behavior: 'smooth', block: 'center' },
+            beforeShowPromise: checkElementExists('.side-bar-st-1', true)
         });
 
-        // Navigation Help
+        // Help Button
         tour.addStep({
             id: 'help-button',
             title: 'Need Help?',
@@ -70,7 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
             attachTo: {
                 element: '#triggertour',
                 on: 'left'
-            }
+            },
+            scrollTo: { behavior: 'smooth', block: 'center' },
+            beforeShowPromise: checkElementExists('#triggertour', true)
         });
 
         // Resume List Section
@@ -94,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: 'a[href*="upload"], .btn-primary',
                 on: 'top'
             },
-            beforeShowPromise: checkElementExists('a[href*="upload"], .btn-primary')
+            beforeShowPromise: checkElementExists('a[href*="upload"], .btn-primary', true)
         });
 
         // Final Step
@@ -115,17 +157,25 @@ document.addEventListener('DOMContentLoaded', () => {
             tourTrigger.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                if (tour.isActive()) tour.complete();
-                tour.start();
+                startTour();
             });
         }
 
-        // Auto-start the tour if it's the user's first visit
-        if (!sessionStorage.getItem('resumeTourShown')) {
-            setTimeout(() => {
-                tour.start();
-                sessionStorage.setItem('resumeTourShown', 'true');
-            }, 1000);
+        // Auto-start the tour if it's the user's first visit to this page
+        const startTourIfNeeded = () => {
+            if (!sessionStorage.getItem('resumeTourShown')) {
+                setTimeout(() => {
+                    startTour();
+                    sessionStorage.setItem('resumeTourShown', 'true');
+                }, 1000);
+            }
+        };
+
+        // Start the tour when the page is fully loaded
+        if (document.readyState === 'complete') {
+            startTourIfNeeded();
+        } else {
+            window.addEventListener('load', startTourIfNeeded);
         }
     });
 });
