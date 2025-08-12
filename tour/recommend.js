@@ -172,21 +172,27 @@ document.addEventListener('DOMContentLoaded', () => {
             tourTrigger.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                localStorage.setItem('recommendTourShown', 'true');
                 startTour();
             });
         }
 
         // Auto-start the tour if it's the user's first visit to this page
         const startTourIfNeeded = () => {
-            if (!sessionStorage.getItem('recommendTourShown')) {
-                setTimeout(() => {
-                    startTour();
-                    sessionStorage.setItem('recommendTourShown', 'true');
-                }, 1000);
+            try {
+                const tourShown = localStorage.getItem('recommendTourShown');
+                if (tourShown !== 'true') {
+                    setTimeout(() => {
+                        startTour();
+                        localStorage.setItem('recommendTourShown', 'true');
+                    }, 1000);
+                }
+            } catch (e) {
+                console.error('Error accessing localStorage:', e);
             }
         };
 
-        // Start the tour when the page is fully loaded
+        // Only auto-start the tour on page load if it hasn't been shown before
         if (document.readyState === 'complete') {
             startTourIfNeeded();
         } else {

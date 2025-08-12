@@ -356,19 +356,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Auto-start the tour if it's the user's first visit to this page
         const startTourIfNeeded = () => {
-            if (!sessionStorage.getItem('resumeTourShown')) {
-                setTimeout(() => {
-                    startTour();
-                    sessionStorage.setItem('resumeTourShown', 'true');
-                }, 1000);
+            try {
+                const tourShown = localStorage.getItem('resumeTourShown');
+                if (tourShown !== 'true') {
+                    setTimeout(() => {
+                        startTour();
+                        // Set the flag when the tour is manually started or completed
+                        localStorage.setItem('resumeTourShown', 'true');
+                    }, 1000);
+                }
+            } catch (e) {
+                console.error('Error accessing localStorage:', e);
             }
         };
 
-        // Start the tour when the page is fully loaded
+        // Only auto-start the tour on page load if it hasn't been shown before
         if (document.readyState === 'complete') {
             startTourIfNeeded();
         } else {
             window.addEventListener('load', startTourIfNeeded);
+        }
+
+        // Update the tour trigger to set the flag when manually started
+        if (tourTrigger) {
+            tourTrigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                localStorage.setItem('resumeTourShown', 'true');
+                startTour();
+            });
         }
     });
 });

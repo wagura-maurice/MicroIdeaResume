@@ -253,17 +253,32 @@ document.addEventListener('DOMContentLoaded', () => {
             tourTrigger.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                localStorage.setItem('profileTourShown', 'true');
                 startTour();
             });
         }
 
-        // Auto-start tour on first visit
-        if (!localStorage.getItem('profileTourCompleted')) {
-            // Wait a bit longer to ensure all elements are loaded
-            setTimeout(() => {
-                startTour();
-                localStorage.setItem('profileTourCompleted', 'true');
-            }, 1500);
+        // Auto-start the tour if it's the user's first visit to this page
+    const startTourIfNeeded = () => {
+        try {
+            const tourShown = localStorage.getItem('profileTourShown');
+            if (tourShown !== 'true') {
+                setTimeout(() => {
+                    startTour();
+                    // Set the flag when the tour is manually started or completed
+                    localStorage.setItem('profileTourShown', 'true');
+                }, 1000);
+            }
+        } catch (e) {
+            console.error('Error accessing localStorage:', e);
         }
+    };
+
+    // Only auto-start the tour on page load if it hasn't been shown before
+    if (document.readyState === 'complete') {
+        startTourIfNeeded();
+    } else {
+        window.addEventListener('load', startTourIfNeeded);
+    }
     }); // End of waitForJQuery callback
 });
