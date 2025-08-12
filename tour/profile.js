@@ -117,6 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
 
+    tour.addStep({
+        id: 'main-navigation',
+        title: 'Main Navigation',
+        text: 'Use the left sidebar to navigate between different sections of the portal.',
+        attachTo: {
+            element: '.side-bar-st-1',
+            on: 'right'
+        }
+    });
+
     // Navigation Help
     tour.addStep({
         id: 'help-button',
@@ -128,9 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Basic Information Section
+    // Profile Information Section
     tour.addStep({
-        id: 'basic-information',
+        id: 'profile-information',
         title: 'Profile Information',
         text: 'This section contains your basic information, your social network and attach resume sections.',
         attachTo: {
@@ -139,18 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         scrollTo: true
     });
-
-    // Form Fields Section
-    // tour.addStep({
-    //     id: 'form-fields',
-    //     title: 'Update Your Details',
-    //     text: 'You can update your personal information in these form fields. Make sure to fill in all required fields marked with an asterisk (*).',
-    //     attachTo: {
-    //         element: 'form[role="form"]',
-    //         on: 'top'
-    //     },
-    //     scrollTo: true
-    // });
 
     // Basic Information Section
     tour.addStep({
@@ -184,11 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Social Media',
         text: 'Connect your social media profiles to enhance your professional network.',
         attachTo: {
-            element: '[id*="social"], [id*="Social"], h4',
+            element: '.panel-body wt-panel-body p-a20 m-b30',
             on: 'top'
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
-        beforeShowPromise: checkElementExists('[id*="social"], [id*="Social"], h4', true, 'Social Network')
+        beforeShowPromise: checkElementExists('.panel-body wt-panel-body p-a20 m-b30', true, 'Social Network')
     });
 
     // Social Media Save Button
@@ -202,6 +200,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         scrollTo: { behavior: 'smooth', block: 'center' },
         beforeShowPromise: checkElementExists('#SaveSocial', true)
+    });
+
+    // Attach Resume Section
+    tour.addStep({
+        id: 'attach-resume-section',
+        title: 'Attach Resume',
+        text: 'Upload your resume to enhance your professional network.',
+        attachTo: {
+            element: '.panel-body wt-panel-body p-a20',
+            on: 'top'
+        },
+        scrollTo: { behavior: 'smooth', block: 'center' },
+        beforeShowPromise: checkElementExists('.panel-body wt-panel-body p-a20', true, 'Attach Resume')
     });
 
     // CV Upload Section
