@@ -3,12 +3,14 @@
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     max-width: 400px;
+    overflow: hidden;
 }
 
 .shepherd-theme-custom .shepherd-header {
-    background-color: #2a2f45 !important;
+    background-color: #2a2f45;
     padding: 15px 20px;
     border-radius: 8px 8px 0 0;
+    position: relative;
 }
 
 .shepherd-theme-custom .shepherd-title {
@@ -16,6 +18,10 @@
     font-weight: 600;
     font-size: 18px;
     margin: 0;
+    background-color: #2a2f45;
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: inline-block;
 }
 
 .shepherd-theme-custom .shepherd-text {
@@ -28,6 +34,9 @@
 .shepherd-theme-custom .shepherd-footer {
     padding: 0 20px 20px;
     border-radius: 0 0 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .shepherd-theme-custom .shepherd-button {
@@ -40,11 +49,13 @@
 .shepherd-theme-custom .shepherd-button.shepherd-button-primary {
     background-color: #2a2f45;
     border: 1px solid #2a2f45;
+    color: #ffffff;
 }
 
 .shepherd-theme-custom .shepherd-button.shepherd-button-primary:hover {
     background-color: #1a1f35;
     border-color: #1a1f35;
+    color: #ffffff;
 }
 
 .shepherd-theme-custom .shepherd-button.shepherd-button-secondary {
@@ -55,16 +66,35 @@
 
 .shepherd-theme-custom .shepherd-button.shepherd-button-secondary:hover {
     background-color: #e9ecef;
+    color: #2a2f45;
 }
 
+/* Close button styles */
 .shepherd-theme-custom .shepherd-cancel-icon {
-    color: #6c757d;
+    color: #ffffff;
     font-size: 1.5em;
     font-weight: bold;
+    transition: color 0.3s ease;
+    opacity: 1;
 }
 
-.shepherd-theme-custom .shepherd-cancel-icon:hover {
-    color: #495057;
+.shepherd-theme-custom .shepherd-cancel-icon:hover,
+.shepherd-theme-custom .shepherd-cancel-icon:focus {
+    color: #9c27b0; /* Purple color on hover/click */
+    text-decoration: none;
+}
+
+/* Header close button container */
+.shepherd-theme-custom .shepherd-header .shepherd-cancel-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 5px;
 }
 
 /* Highlight the current element being shown */
@@ -83,5 +113,10 @@
     
     .shepherd-theme-custom .shepherd-text {
         font-size: 14px;
+    }
+    
+    .shepherd-theme-custom .shepherd-title {
+        font-size: 16px;
+        padding: 8px 12px;
     }
 }
