@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Profile Information',
         text: 'This section contains your basic personal information such as name, email, and contact details.',
         attachTo: {
-            element: '.page-content',
+            element: '.twm-right-section-panel.site-bg-gray',
             on: 'top'
         },
         scrollTo: true
