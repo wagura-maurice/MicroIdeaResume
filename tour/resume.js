@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.logo-header',
                 on: 'bottom'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             buttons: [
                 {
                     text: 'Next',
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#resume_headline_div',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#resume_headline_div', true)
         });
 
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#resume_headline_edit',
                 on: 'left'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#resume_headline_edit', true)
         });
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#key_skills_div',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#key_skills_div', true)
         });
 
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#key_skills_edit',
                 on: 'left'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#key_skills_edit', true)
         });
 
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#employment_div',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#employment_div', true)
         });
 
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#employment_edit',
                 on: 'left'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#employment_edit', true)
         });
 
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#education_div',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#education_div', true)
         });
 
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#education_edit',
                 on: 'left'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#education_edit', true)
         });
 
@@ -228,21 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#accomplishment_div',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#accomplishment_div', true)
-        });
-
-        // Accomplishments Edit Button
-        tour.addStep({
-            id: 'accomplishments-edit',
-            title: 'Edit Accomplishments',
-            text: 'Click here to add or update your professional achievements and awards.',
-            attachTo: {
-                element: '#work_sample_edit',
-                on: 'left'
-            },
-            scrollTo: true,
-            beforeShowPromise: checkElementExists('#work_sample_edit', true)
         });
 
         // Work Samples Section
@@ -254,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#work_sample_edit',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#work_sample_edit', true)
         });
 
@@ -267,8 +254,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#work_sample_edit',
                 on: 'left'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#work_sample_edit', true)
+        });
+
+        // Papers / Research Publications / Journals Section
+        tour.addStep({
+            id: 'papers',
+            title: 'Papers / Research Publications / Journals',
+            text: 'List any papers, research publications, or journals you\'ve obtained.',
+            attachTo: {
+                element: '#research_publication_div',
+                on: 'top'
+            },
+            scrollTo: { behavior: 'smooth', block: 'center' },
+            beforeShowPromise: checkElementExists('#research_publication_div', true)
+        });
+
+        // Papers / Research Publications / Journals Edit Button
+        tour.addStep({
+            id: 'papers-edit',
+            title: 'Edit Papers / Research Publications / Journals',
+            text: 'Click here to add or update your papers, research publications, or journals. For deletion press on thew red button when you hoaver on the listed item.',
+            attachTo: {
+                element: '#research_publication_edit',
+                on: 'left'
+            },
+            scrollTo: { behavior: 'smooth', block: 'center' },
+            beforeShowPromise: checkElementExists('#research_publication_edit', true)
         });
 
         // Certifications Section
@@ -280,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#certification_div',
                 on: 'top'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#certification_div', true)
         });
 
@@ -293,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '#certification_edit',
                 on: 'left'
             },
-            scrollTo: true,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             beforeShowPromise: checkElementExists('#certification_edit', true)
         });
 
