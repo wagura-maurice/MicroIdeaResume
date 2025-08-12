@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element: '.logo-header',
                 on: 'bottom'
             },
-            scrollTo: { behavior: 'smooth', block: 'center' },,
+            scrollTo: { behavior: 'smooth', block: 'center' },
             buttons: [
                 {
                     text: 'Next',
