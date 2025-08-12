@@ -88,18 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Your Dashboard Overview',
         text: 'Here are your key metrics at a glance:',
         attachTo: {
-            element: '.dashboard-stats, .stats-container, .stat-cards, [class*="stat"], [class*="card"]',
-            on: 'bottom'
+            element: '.twm-right-section-panel.site-bg-gray, .twm-right-section-panel, .site-bg-gray',
+            on: 'left-start'
         },
         beforeShowPromise: function() {
-            // Try to find any stats container
-            const statsContainer = document.querySelector('.dashboard-stats, .stats-container, .stat-cards, [class*="stat"], [class*="card"]');
-            if (!statsContainer) {
+            // Try to find the right panel
+            const rightPanel = document.querySelector('.twm-right-section-panel.site-bg-gray, .twm-right-section-panel, .site-bg-gray');
+            if (!rightPanel) {
                 return Promise.resolve().then(() => {
                     tour.next();
                     return { hide: true };
                 });
             }
+            // Scroll the panel into view
+            rightPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
             return Promise.resolve();
         }
     });
