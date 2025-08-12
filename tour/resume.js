@@ -315,11 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'edit-buttons',
             title: 'Editing Your Information',
             text: 'Look for the edit icons next to each section to update your information at any time.',
-            attachTo: {
-                element: '.content-admin-main',
-                on: 'top'
-            },
-            scrollTo: { behavior: 'smooth', block: 'center' },
             when: {
                 show: function() {
                     const step = this;
