@@ -1,3 +1,8 @@
+/**
+ * Recommendations Page Tour using Shepherd.js
+ * Provides an interactive tour of the recommendations page features
+ */
+
 // Initialize Shepherd.js tour for the recommendations page
 function initializeTour() {
     return new Shepherd.Tour({
