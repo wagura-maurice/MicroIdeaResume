@@ -235,17 +235,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Work Samples Section
-        tour.addStep({
-            id: 'work-samples',
-            title: 'Work Samples',
-            text: 'Showcase examples of your work, projects, or portfolio pieces to demonstrate your skills.',
-            attachTo: {
-                element: '#work_sample_div',
-                on: 'top'
-            },
-            scrollTo: { behavior: 'smooth', block: 'center' },
-            beforeShowPromise: checkElementExists('#work_sample_div', true)
-        });
+        // tour.addStep({
+        //     id: 'work-samples',
+        //     title: 'Work Samples',
+        //     text: 'Showcase examples of your work, projects, or portfolio pieces to demonstrate your skills.',
+        //     attachTo: {
+        //         element: '#work_sample_div',
+        //         on: 'top'
+        //     },
+        //     scrollTo: { behavior: 'smooth', block: 'center' },
+        //     beforeShowPromise: checkElementExists('#work_sample_div', true)
+        // });
 
         // Work Samples Edit Button
         tour.addStep({
