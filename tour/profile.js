@@ -119,6 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         buttons: [
             {
+                text: 'Skip for now',
+                action() { return this.complete(); },
+                classes: 'shepherd-button-secondary',
+                secondary: true
+            },
+            {
                 text: 'Next',
                 action: tour.next,
                 classes: 'shepherd-button-primary'

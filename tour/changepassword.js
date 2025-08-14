@@ -105,19 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
         tour.addStep({
             id: 'welcome',
             title: 'Change Your Password',
+            buttons: [
+                {
+                    text: 'Skip for now',
+                    action() { return this.complete(); },
+                    classes: 'shepherd-button-secondary',
+                    secondary: true
+                },
+                {
+                    text: 'Next',
+                    action() { return this.next(); },
+                    classes: 'shepherd-button-primary'
+                }
+            ],
             text: 'Welcome to the password change page. This tour will guide you through updating your password.',
             attachTo: {
                 element: '.logo-header',
                 on: 'bottom'
             },
-            scrollTo: { behavior: 'smooth', block: 'center' },
-            buttons: [
-                {
-                    text: 'Next',
-                    action: tour.next,
-                    classes: 'shepherd-button-primary'
-                }
-            ]
+            scrollTo: { behavior: 'smooth', block: 'center' }
         });
 
         // Main Navigation

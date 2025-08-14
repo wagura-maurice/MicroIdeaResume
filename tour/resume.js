@@ -76,6 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
         tour.addStep({
             id: 'welcome',
             title: 'Resume Management',
+            buttons: [
+                {
+                    text: 'Skip for now',
+                    action() { return this.complete(); },
+                    classes: 'shepherd-button-secondary',
+                    secondary: true
+                },
+                {
+                    text: 'Next',
+                    action() { return this.next(); },
+                    classes: 'shepherd-button-primary'
+                }
+            ],
             text: 'Welcome to your resume management page. This tour will guide you through managing your resumes and CVs.',
             attachTo: {
                 element: '.logo-header',
