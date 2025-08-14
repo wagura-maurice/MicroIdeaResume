@@ -21,6 +21,12 @@ const TOUR_CONFIG = {
                 text: 'Next',
                 action() { return this.next(); },
                 classes: 'shepherd-button-primary'
+            },
+            {
+                text: 'Skip for now',
+                action() { return this.complete(); },
+                classes: 'shepherd-button-secondary',
+                secondary: true
             }
         ]
     }
