@@ -85,19 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tour.addStep({
             id: 'welcome',
             title: 'Job Recommendations',
-            buttons: [
-                {
-                    text: 'Skip for now',
-                    action() { return this.complete(); },
-                    classes: 'shepherd-button-secondary',
-                    secondary: true
-                },
-                {
-                    text: 'Next',
-                    action() { return this.next(); },
-                    classes: 'shepherd-button-primary'
-                }
-            ],
             text: 'Welcome to the job recommendations page. This tour will guide you through finding your next career opportunity.',
             attachTo: {
                 element: '.logo-header',
@@ -105,6 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             scrollTo: { behavior: 'smooth', block: 'center' },
             buttons: [
+                {
+                    text: 'Skip for now',
+                    action() { return this.complete(); },
+                    classes: 'shepherd-button-secondary',
+                    secondary: true
+                },
                 {
                     text: 'Next',
                     action: tour.next,

@@ -21,12 +21,6 @@ const TOUR_CONFIG = {
                 text: 'Next',
                 action() { return this.next(); },
                 classes: 'shepherd-button-primary'
-            },
-            {
-                text: 'Skip for now',
-                action() { return this.complete(); },
-                classes: 'shepherd-button-secondary',
-                secondary: true
             }
         ]
     }
@@ -53,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     tour.addStep({
         id: 'welcome',
         title: 'Welcome to Your Dashboard',
+        text: 'Welcome to your Micro-Idea Dashboard! This tour will guide you through the main features and navigation.',
+        attachTo: {
+            element: '.logo-header',
+            on: 'bottom'
+        },
+        scrollTo: { behavior: 'smooth', block: 'center' },
         buttons: [
             {
                 text: 'Skip for now',
@@ -60,18 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 classes: 'shepherd-button-secondary',
                 secondary: true
             },
-            {
-                text: 'Next',
-                action() { return this.next(); },
-                classes: 'shepherd-button-primary'
-            }
-        ],
-        text: 'Welcome to your Micro-Idea Dashboard! This tour will guide you through the main features and navigation.',
-        attachTo: {
-            element: '.logo-header',
-            on: 'bottom'
-        },
-        buttons: [
             {
                 text: 'Next',
                 action: tour.next,
